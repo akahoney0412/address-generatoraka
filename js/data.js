@@ -18,9 +18,11 @@ const COUNTRIES = {
       female: ['Mary', 'Patricia', 'Jennifer', 'Linda', 'Barbara', 'Elizabeth', 'Susan', 'Jessica', 'Sarah', 'Karen', 'Lisa', 'Nancy', 'Betty', 'Margaret', 'Sandra']
     },
     lastNames: ['Smith', 'Johnson', 'Williams', 'Brown', 'Jones', 'Garcia', 'Miller', 'Davis', 'Rodriguez', 'Martinez', 'Hernandez', 'Lopez', 'Gonzalez', 'Wilson', 'Anderson', 'Thomas', 'Taylor', 'Moore', 'Jackson', 'Martin'],
-    cities: ['New York', 'Los Angeles', 'Chicago', 'Houston', 'Phoenix', 'Philadelphia', 'San Antonio', 'San Diego', 'Dallas', 'San Jose', 'Austin', 'Jacksonville', 'Fort Worth', 'Columbus', 'Charlotte', 'Indianapolis', 'San Francisco', 'Seattle', 'Denver', 'Boston'],
-    streets: ['Main St', 'Oak Ave', 'Maple Dr', 'Cedar Ln', 'Pine Rd', 'Elm St', 'Washington Blvd', 'Lake Dr', 'Hill Rd', 'Park Ave', 'River Rd', 'Forest Way', 'Sunset Blvd', 'Broadway', 'First Ave'],
-    states: ['AL', 'AK', 'AZ', 'AR', 'CA', 'CO', 'CT', 'DE', 'FL', 'GA', 'HI', 'ID', 'IL', 'IN', 'IA', 'KS', 'KY', 'LA', 'ME', 'MD', 'MA', 'MI', 'MN', 'MS', 'MO', 'MT', 'NE', 'NV', 'NH', 'NJ', 'NM', 'NY', 'NC', 'ND', 'OH', 'OK', 'OR', 'PA', 'RI', 'SC', 'SD', 'TN', 'TX', 'UT', 'VT', 'VA', 'WA', 'WV', 'WI', 'WY'],
+    cities: [
+      { city: 'New York', state: 'NY', zips: ['10001','10002','10003'], streets: ['Broadway','5th Avenue','Wall Street','Park Avenue','Madison Avenue'], districts: ['Manhattan','Brooklyn','Queens'], areaCode: '212' },
+      { city: 'Los Angeles', state: 'CA', zips: ['90001','90012','90024'], streets: ['Hollywood Boulevard','Sunset Boulevard','Wilshire Boulevard','Rodeo Drive','Venice Boulevard'], districts: ['Hollywood','Beverly Hills','Santa Monica'], areaCode: '213' },
+      { city: 'Chicago', state: 'IL', zips: ['60601','60602','60611'], streets: ['Michigan Avenue','State Street','Lake Shore Drive','Wacker Drive','Clark Street'], districts: ['The Loop','Lincoln Park','Wicker Park'], areaCode: '312' },
+    ],
     streetAddress: (num, street, city, zip, state) => `${num} ${street}, ${city}, ${state} ${zip}`,
     idLabel: 'SSN',
     idFormat: () => `${String(rand(100, 999))}-${String(rand(10, 99))}-${String(rand(1000, 9999))}`,
@@ -44,9 +46,11 @@ const COUNTRIES = {
       female: ['Olivia', 'Amelia', 'Isla', 'Ava', 'Emily', 'Isabella', 'Mia', 'Poppy', 'Ella', 'Lily', 'Grace', 'Sophia', 'Evie', 'Sophie', 'Charlotte']
     },
     lastNames: ['Smith', 'Jones', 'Williams', 'Taylor', 'Brown', 'Davies', 'Evans', 'Wilson', 'Thomas', 'Roberts', 'Johnson', 'Lewis', 'Walker', 'Robinson', 'Wood', 'Thompson', 'White', 'Watson', 'Jackson', 'Wright'],
-    cities: ['London', 'Birmingham', 'Leeds', 'Glasgow', 'Sheffield', 'Bradford', 'Edinburgh', 'Liverpool', 'Manchester', 'Bristol', 'Wakefield', 'Cardiff', 'Coventry', 'Nottingham', 'Leicester', 'Sunderland', 'Belfast', 'Newcastle', 'Brighton', 'Oxford'],
-    streets: ['High Street', 'Church Lane', 'Victoria Road', 'Park Avenue', 'Station Road', 'King Street', 'Queen Street', 'New Road', 'Green Lane', 'Mill Road', 'The Avenue', 'Bridge Street', 'North Street', 'South Road', 'West Street'],
-    states: ['England', 'Scotland', 'Wales', 'Northern Ireland'],
+    cities: [
+      { city: 'London', state: 'England', zips: ['SW1A 1AA','EC1A 1BB','W1A 0AX'], streets: ['Oxford Street','Baker Street','Piccadilly','Regent Street','Bond Street'], districts: ['Westminster','Kensington','Camden'], areaCode: '020' },
+      { city: 'Manchester', state: 'England', zips: ['M1 1AA','M2 3AB','M4 1HQ'], streets: ['Market Street','Deansgate','Oxford Road','Piccadilly Gardens','Portland Street'], districts: ['City Centre','Salford','Trafford'], areaCode: '0161' },
+      { city: 'Edinburgh', state: 'Scotland', zips: ['EH1 1AA','EH2 2AB','EH3 5AT'], streets: ['Princes Street','Royal Mile','George Street','Leith Walk','Morningside Road'], districts: ['Old Town','New Town','Leith'], areaCode: '0131' },
+    ],
     streetAddress: (num, street, city, zip, state) => `${num} ${street}, ${city}, ${zip}, ${state}`,
     idLabel: 'NI Number',
     idFormat: () => {
@@ -68,9 +72,11 @@ const COUNTRIES = {
       female: ['芳', '娜', '敏', '静', '秀英', '慧', '艳', '娟', '婷', '丽', '燕', '玲', '雪', '洁', '梅']
     },
     lastNames: ['王', '李', '张', '刘', '陈', '杨', '黄', '赵', '吴', '周', '徐', '孙', '马', '朱', '胡', '郭', '何', '高', '林', '郑'],
-    cities: ['北京', '上海', '广州', '深圳', '成都', '杭州', '武汉', '西安', '南京', '重庆', '天津', '苏州', '郑州', '青岛', '大连', '沈阳', '长沙', '济南', '哈尔滨', '昆明'],
-    streets: ['中山路', '人民路', '解放路', '建国路', '长安街', '南京路', '北京路', '和平路', '新华路', '光明路', '文化路', '胜利路', '兴华路', '建设路', '振兴路'],
-    states: ['北京市', '上海市', '广东省', '四川省', '浙江省', '湖北省', '陕西省', '江苏省', '重庆市', '天津市'],
+    cities: [
+      { city: '北京', state: '', zips: ['100001','100020','100080'], streets: ['长安街','王府井大街','西单大街','朝阳路','建国门外大街'], districts: ['东城区','西城区','朝阳区'], areaCode: '010' },
+      { city: '上海', state: '', zips: ['200001','200010','200025'], streets: ['南京路','淮海路','人民大道','四川北路','外滩'], districts: ['黄浦区','浦东新区','静安区'], areaCode: '021' },
+      { city: '广州', state: '广东省', zips: ['510000','510010','510095'], streets: ['天河路','北京路','中山大道','越秀路','环市东路'], districts: ['天河区','越秀区','海珠区'], areaCode: '020' },
+    ],
     streetAddress: (num, street, city, zip, state) => `${state}${city}市${street}${num}号`,
     idLabel: '身份证号',
     idFormat: () => {
@@ -101,9 +107,11 @@ const COUNTRIES = {
       female: ['陽菜', '凜', '結菜', '紬', '杏', '葵', '咲良', '美羽', '莉子', '心春', '花', '桃', '優', '愛', '澪']
     },
     lastNames: ['佐藤', '鈴木', '高橋', '田中', '伊藤', '渡辺', '山本', '中村', '小林', '加藤', '吉田', '山田', '佐々木', '山口', '松本', '井上', '木村', '林', '斉藤', '清水'],
-    cities: ['東京', '横浜', '大阪', '名古屋', '札幌', '福岡', '神戸', '京都', '川崎', 'さいたま', '広島', '仙台', '千葉', '北九州', '堺', '浜松', '熊本', '相模原', '岡山', '静岡'],
-    streets: ['桜通', '中央通', '東通', '西通', '南通', '北通', '本町', '大通', '商店街', '若宮', '大路', '通り', '元町', '住吉'],
-    states: ['東京都', '神奈川県', '大阪府', '愛知県', '北海道', '福岡県', '兵庫県', '京都府', '埼玉県', '千葉県'],
+    cities: [
+      { city: '東京', state: '東京都', zips: ['100-0001','101-0021','102-0082'], streets: ['銀座通り','新宿大通り','渋谷センター街','池袋西口','秋葉原駅前'], districts: ['千代田区','新宿区','渋谷区'], areaCode: '03' },
+      { city: '大阪', state: '大阪府', zips: ['530-0001','542-0076','556-0011'], streets: ['御堂筋','心斎橋筋','なんば大通り','天王寺通り','北堀江'], districts: ['北区','中央区','浪速区'], areaCode: '06' },
+      { city: '名古屋', state: '愛知県', zips: ['460-0001','461-0001','462-0819'], streets: ['錦通','大津通り','広小路通り','栄通','久屋大通'], districts: ['中区','東区','千種区'], areaCode: '052' },
+    ],
     streetAddress: (num, street, city, zip, state) => `〒${zip} ${state}${city}市${street}${num}丁目`,
     idLabel: 'マイナンバー',
     idFormat: () => String(rand(100000000000, 999999999999)),
@@ -122,9 +130,11 @@ const COUNTRIES = {
       female: ['서연', '서윤', '지우', '서현', '하은', '하윤', '민서', '지유', '윤서', '채원', '수아', '지아', '지민', '아린', '예은']
     },
     lastNames: ['김', '이', '박', '최', '정', '강', '조', '윤', '장', '임', '한', '오', '서', '신', '권', '황', '안', '송', '류', '전'],
-    cities: ['서울', '부산', '인천', '대구', '대전', '광주', '수원', '울산', '성남', '고양', '용인', '부천', '안산', '안양', '남양주', '화성', '창원', '청주', '전주', '천안'],
-    streets: ['강남대로', '테헤란로', '종로', '세종대로', '올림픽로', '영동대로', '통일로', '중앙로', '대학로', '해운대로'],
-    states: ['서울특별시', '부산광역시', '인천광역시', '대구광역시', '경기도', '경상남도', '경상북도', '전라남도', '전라북도', '충청남도'],
+    cities: [
+      { city: '서울', state: '서울특별시', zips: ['04524','06141','03080'], streets: ['강남대로','테헤란로','종로','세종대로','을지로'], districts: ['강남구','종로구','중구'], areaCode: '02' },
+      { city: '부산', state: '부산광역시', zips: ['48058','47012','49200'], streets: ['해운대로','중앙대로','광복로','동래로','사직로'], districts: ['해운대구','중구','동래구'], areaCode: '051' },
+      { city: '인천', state: '인천광역시', zips: ['22100','21565','22300'], streets: ['경인로','인하로','부평대로','주안로','송도대로'], districts: ['중구','부평구','연수구'], areaCode: '032' },
+    ],
     streetAddress: (num, street, city, zip, state) => `${state} ${city} ${street} ${num}`,
     idLabel: '주민등록번호',
     idFormat: () => {
@@ -150,9 +160,11 @@ const COUNTRIES = {
       female: ['Maria', 'Ana', 'Rosa', 'Carmen', 'Luz', 'Grace', 'Patricia', 'Maricel', 'Cristina', 'Lourdes', 'Jennifer', 'Michelle', 'Jasmine', 'Rhea', 'Rowena']
     },
     lastNames: ['Santos', 'Reyes', 'Cruz', 'Bautista', 'Ocampo', 'Garcia', 'Mendoza', 'Torres', 'Castillo', 'Flores', 'Ramos', 'Aquino', 'Dela Cruz', 'Villanueva', 'Perez'],
-    cities: ['Manila', 'Quezon City', 'Caloocan', 'Davao', 'Cebu City', 'Zamboanga', 'Antipolo', 'Taguig', 'Pasig', 'Cagayan de Oro', 'Parañaque', 'Las Piñas', 'Makati', 'Bacolod', 'Muntinlupa'],
-    streets: ['Rizal Avenue', 'Quezon Boulevard', 'España Boulevard', 'Roxas Boulevard', 'Taft Avenue', 'EDSA', 'Shaw Boulevard', 'Commonwealth Avenue', 'Aurora Boulevard', 'Ortigas Avenue'],
-    states: ['Metro Manila', 'Cebu', 'Davao', 'Central Visayas', 'Northern Mindanao', 'Western Visayas', 'Calabarzon', 'Central Luzon', 'Cordillera', 'Ilocos Region'],
+    cities: [
+      { city: 'Manila', state: 'Metro Manila', zips: ['1000','1001','1002'], streets: ['Rizal Avenue','Taft Avenue','España Boulevard','Roxas Boulevard','Quezon Boulevard'], districts: ['Ermita','Malate','Binondo'], areaCode: '02' },
+      { city: 'Cebu City', state: 'Cebu', zips: ['6000','6001','6002'], streets: ['Colon Street','Osmena Boulevard','Gorordo Avenue','Cebu South Road','Mandaue Bypass'], districts: ['Capitol Site','Lahug','Banilad'], areaCode: '032' },
+      { city: 'Davao', state: 'Davao Region', zips: ['8000','8001','8003'], streets: ['Claro M. Recto Avenue','J.P. Laurel Avenue','Quimpo Boulevard','Quirino Avenue','Ilustre Street'], districts: ['Poblacion','Agdao','Buhangin'], areaCode: '082' },
+    ],
     streetAddress: (num, street, city, zip, state) => `${num} ${street}, ${city}, ${zip} ${state}, Philippines`,
     idLabel: 'PhilSys ID',
     idFormat: () => `${rand(1000, 9999)}-${rand(1000, 9999)}-${rand(1000, 9999)}`,
@@ -171,9 +183,11 @@ const COUNTRIES = {
       female: ['Emma', 'Mia', 'Hannah', 'Lea', 'Lena', 'Leoni', 'Anna', 'Sophie', 'Julia', 'Lara', 'Lisa', 'Marie', 'Laura', 'Sara', 'Klara']
     },
     lastNames: ['Müller', 'Schmidt', 'Schneider', 'Fischer', 'Weber', 'Meyer', 'Wagner', 'Becker', 'Schulz', 'Hoffmann', 'Schäfer', 'Koch', 'Bauer', 'Richter', 'Klein', 'Wolf', 'Schröder', 'Neumann', 'Schwarz', 'Zimmermann'],
-    cities: ['Berlin', 'Hamburg', 'München', 'Köln', 'Frankfurt', 'Stuttgart', 'Düsseldorf', 'Dortmund', 'Essen', 'Leipzig', 'Bremen', 'Dresden', 'Hannover', 'Nürnberg', 'Duisburg', 'Bochum', 'Wuppertal', 'Bonn', 'Bielefeld', 'Mannheim'],
-    streets: ['Hauptstraße', 'Schulstraße', 'Gartenstraße', 'Dorfstraße', 'Bahnhofstraße', 'Kirchstraße', 'Bergstraße', 'Waldstraße', 'Ringstraße', 'Lindenstraße', 'Rathausplatz', 'Marktplatz', 'Münchener Str.', 'Berliner Str.', 'Frankfurter Str.'],
-    states: ['Bayern', 'Berlin', 'Brandenburg', 'Bremen', 'Hamburg', 'Hessen', 'Mecklenburg-Vorpommern', 'Niedersachsen', 'Nordrhein-Westfalen', 'Rheinland-Pfalz'],
+    cities: [
+      { city: 'Berlin', state: 'Berlin', zips: ['10115','10178','10243'], streets: ['Unter den Linden','Kurfürstendamm','Friedrichstraße','Karl-Marx-Allee','Potsdamer Straße'], districts: ['Mitte','Prenzlauer Berg','Kreuzberg'], areaCode: '030' },
+      { city: 'München', state: 'Bayern', zips: ['80331','80333','80469'], streets: ['Maximilianstraße','Leopoldstraße','Marienplatz','Kaufingerstraße','Nymphenburger Straße'], districts: ['Altstadt','Schwabing','Maxvorstadt'], areaCode: '089' },
+      { city: 'Hamburg', state: 'Hamburg', zips: ['20095','20144','20357'], streets: ['Mönckebergstraße','Jungfernstieg','Reeperbahn','Eppendorfer Baum','Wandsbeker Marktstraße'], districts: ['Altstadt','Eimsbüttel','Eppendorf'], areaCode: '040' },
+    ],
     streetAddress: (num, street, city, zip, state) => `${street} ${num}, ${zip} ${city}, ${state}`,
     idLabel: 'Personalausweis',
     idFormat: () => {
@@ -198,9 +212,11 @@ const COUNTRIES = {
       female: ['Emma', 'Jade', 'Louise', 'Alice', 'Chloé', 'Inès', 'Léa', 'Manon', 'Camille', 'Zoé', 'Sarah', 'Lucie', 'Pauline', 'Julie', 'Charlotte']
     },
     lastNames: ['Martin', 'Bernard', 'Robert', 'Richard', 'Durand', 'Dubois', 'Moreau', 'Laurent', 'Simon', 'Michel', 'Lefebvre', 'Leroy', 'Roux', 'David', 'Bertrand', 'Morel', 'Fournier', 'Girard', 'Bonnet', 'Dupont'],
-    cities: ['Paris', 'Marseille', 'Lyon', 'Toulouse', 'Nice', 'Nantes', 'Strasbourg', 'Montpellier', 'Bordeaux', 'Lille', 'Rennes', 'Reims', 'Saint-Étienne', 'Le Havre', 'Toulon', 'Grenoble', 'Dijon', 'Angers', 'Nîmes', 'Villeurbanne'],
-    streets: ['Rue de la Paix', 'Avenue des Champs-Élysées', 'Rue Victor Hugo', 'Boulevard Haussmann', 'Rue de Rivoli', 'Avenue Montaigne', 'Rue du Faubourg', 'Allée des Roses', 'Impasse Beaumont', 'Passage du Commerce'],
-    states: ['Île-de-France', 'Provence-Alpes-Côte d\'Azur', 'Auvergne-Rhône-Alpes', 'Occitanie', 'Nouvelle-Aquitaine', 'Bretagne', 'Normandie', 'Hauts-de-France', 'Grand Est', 'Pays de la Loire'],
+    cities: [
+      { city: 'Paris', state: 'Île-de-France', zips: ['75001','75008','75016'], streets: ['Avenue des Champs-Élysées','Rue de Rivoli','Boulevard Haussmann','Rue de la Paix','Avenue Montaigne'], districts: ['1er arrondissement','8e arrondissement','16e arrondissement'], areaCode: '01' },
+      { city: 'Lyon', state: 'Auvergne-Rhône-Alpes', zips: ['69001','69002','69003'], streets: ['Rue de la République','Place Bellecour','Quai des Célestins','Cours Lafayette','Rue Mercière'], districts: ["Presqu'île",'Vieux-Lyon','Part-Dieu'], areaCode: '04' },
+      { city: 'Marseille', state: "Provence-Alpes-Côte d'Azur", zips: ['13001','13002','13008'], streets: ['La Canebière','Rue de Rome','Avenue du Prado','Boulevard Longchamp','Cours Julien'], districts: ['Le Panier','Noailles','Vieux-Port'], areaCode: '04' },
+    ],
     streetAddress: (num, street, city, zip, state) => `${num} ${street}, ${zip} ${city}, ${state}`,
     idLabel: 'Numéro de Sécurité Sociale',
     idFormat: () => {
@@ -228,9 +244,11 @@ const COUNTRIES = {
       female: ['Olivia', 'Charlotte', 'Ava', 'Mia', 'Amelia', 'Grace', 'Isla', 'Sophie', 'Emily', 'Zoe', 'Ruby', 'Lily', 'Emma', 'Chloe', 'Isabella']
     },
     lastNames: ['Smith', 'Jones', 'Williams', 'Brown', 'Wilson', 'Taylor', 'Johnson', 'White', 'Martin', 'Anderson', 'Thompson', 'Nguyen', 'Thomas', 'Walker', 'Harris', 'Lee', 'Ryan', 'Robinson', 'Kelly', 'King'],
-    cities: ['Sydney', 'Melbourne', 'Brisbane', 'Perth', 'Adelaide', 'Gold Coast', 'Newcastle', 'Canberra', 'Sunshine Coast', 'Wollongong', 'Hobart', 'Geelong', 'Townsville', 'Cairns', 'Darwin', 'Toowoomba', 'Ballarat', 'Bendigo', 'Launceston', 'Albury'],
-    streets: ['George Street', 'Queen Street', 'King Street', 'Elizabeth Street', 'Collins Street', 'Bourke Street', 'Flinders Street', 'Swanston Street', 'Spencer Street', 'William Street', 'Pitt Street', 'Bridge Road', 'Chapel Street', 'High Street', 'Pacific Highway'],
-    states: ['NSW', 'VIC', 'QLD', 'WA', 'SA', 'TAS', 'ACT', 'NT'],
+    cities: [
+      { city: 'Sydney', state: 'NSW', zips: ['2000','2010','2017'], streets: ['George Street','Pitt Street','Market Street','Oxford Street','Military Road'], districts: ['CBD','Surry Hills','Darlinghurst'], areaCode: '02' },
+      { city: 'Melbourne', state: 'VIC', zips: ['3000','3004','3008'], streets: ['Collins Street','Bourke Street','Flinders Street','Swanston Street','Chapel Street'], districts: ['CBD','South Yarra','Fitzroy'], areaCode: '03' },
+      { city: 'Brisbane', state: 'QLD', zips: ['4000','4101','4169'], streets: ['Queen Street','George Street','Edward Street','Adelaide Street','Brunswick Street'], districts: ['CBD','South Bank','Fortitude Valley'], areaCode: '07' },
+    ],
     streetAddress: (num, street, city, zip, state) => `${num} ${street}, ${city} ${state} ${zip}`,
     idLabel: 'Tax File Number',
     idFormat: () => `${rand(100, 999)} ${rand(100, 999)} ${rand(100, 999)}`,
@@ -255,9 +273,11 @@ const COUNTRIES = {
       female: ['Olivia', 'Emma', 'Ava', 'Sophia', 'Isabella', 'Charlotte', 'Amelia', 'Mia', 'Harper', 'Evelyn', 'Abigail', 'Emily', 'Elizabeth', 'Sofia', 'Ella']
     },
     lastNames: ['Smith', 'Brown', 'Tremblay', 'Martin', 'Roy', 'Wilson', 'MacDonald', 'Taylor', 'Johnson', 'White', 'Anderson', 'Thompson', 'Gagnon', 'Lee', 'Côté', 'Young', 'Scott', 'Hill', 'Moore', 'Clark'],
-    cities: ['Toronto', 'Montreal', 'Vancouver', 'Calgary', 'Edmonton', 'Ottawa', 'Winnipeg', 'Quebec City', 'Hamilton', 'Kitchener', 'London', 'Victoria', 'Halifax', 'Oshawa', 'Windsor', 'Saskatoon', 'Regina', 'Sherbrooke', 'Kelowna', 'Barrie'],
-    streets: ['Main Street', 'King Street', 'Queen Street', 'Yonge Street', 'Bay Street', 'Front Street', 'Bloor Street', 'Dundas Street', 'Eglinton Avenue', 'Lawrence Avenue', 'Sheppard Avenue', 'Finch Avenue', 'Victoria Street', 'Church Street', 'Spadina Avenue'],
-    states: ['ON', 'QC', 'BC', 'AB', 'MB', 'SK', 'NS', 'NB', 'NL', 'PE', 'NT', 'YT', 'NU'],
+    cities: [
+      { city: 'Toronto', state: 'ON', zips: ['M5A 1A1','M4B 1B3','M6G 3B8'], streets: ['Yonge Street','Bay Street','Bloor Street','Dundas Street','Queen Street West'], districts: ['Downtown','Midtown','The Annex'], areaCode: '416' },
+      { city: 'Vancouver', state: 'BC', zips: ['V5K 0A1','V6B 1A1','V6Z 2H3'], streets: ['Granville Street','Robson Street','Hastings Street','Georgia Street','Davie Street'], districts: ['Downtown','Kitsilano','Mount Pleasant'], areaCode: '604' },
+      { city: 'Montreal', state: 'QC', zips: ['H2Y 1C6','H3A 0A1','H3G 1T7'], streets: ['Rue Sainte-Catherine','Boulevard Saint-Laurent','Avenue du Parc','Rue Sherbrooke','Avenue du Mont-Royal'], districts: ['Plateau-Mont-Royal','Ville-Marie','Rosemont'], areaCode: '514' },
+    ],
     streetAddress: (num, street, city, zip, state) => `${num} ${street}, ${city}, ${state} ${zip}`,
     idLabel: 'SIN',
     idFormat: () => `${rand(100, 999)} ${rand(100, 999)} ${rand(100, 999)}`,
@@ -276,9 +296,11 @@ const COUNTRIES = {
       female: ['Sofia', 'Giulia', 'Aurora', 'Alice', 'Ginevra', 'Emma', 'Chiara', 'Beatrice', 'Martina', 'Eleonora', 'Federica', 'Valentina', 'Sara', 'Francesca', 'Anna']
     },
     lastNames: ['Rossi', 'Russo', 'Ferrari', 'Esposito', 'Bianchi', 'Romano', 'Colombo', 'Ricci', 'Marino', 'Greco', 'Bruno', 'Gallo', 'Conti', 'De Luca', 'Costa', 'Giordano', 'Mancini', 'Rizzo', 'Lombardi', 'Moretti'],
-    cities: ['Roma', 'Milano', 'Napoli', 'Torino', 'Palermo', 'Genova', 'Bologna', 'Firenze', 'Bari', 'Catania', 'Venezia', 'Verona', 'Messina', 'Padova', 'Trieste', 'Taranto', 'Brescia', 'Reggio Calabria', 'Modena', 'Prato'],
-    streets: ['Via Roma', 'Via Garibaldi', 'Corso Italia', 'Via Nazionale', 'Via Manzoni', 'Piazza del Duomo', 'Via Dante', 'Corso Vittorio Emanuele', 'Via dei Mille', 'Via della Repubblica'],
-    states: ['Lazio', 'Lombardia', 'Campania', 'Piemonte', 'Sicilia', 'Liguria', 'Emilia-Romagna', 'Toscana', 'Puglia', 'Veneto'],
+    cities: [
+      { city: 'Roma', state: 'Lazio', zips: ['00100','00161','00195'], streets: ['Via Nazionale','Via del Corso','Via Veneto','Via Appia Nuova','Viale Trastevere'], districts: ['Centro Storico','Trastevere','Prati'], areaCode: '06' },
+      { city: 'Milano', state: 'Lombardia', zips: ['20100','20121','20135'], streets: ['Corso Buenos Aires','Via Torino','Via Dante','Corso Vittorio Emanuele II','Via Montenapoleone'], districts: ['Duomo','Navigli','Brera'], areaCode: '02' },
+      { city: 'Napoli', state: 'Campania', zips: ['80100','80121','80138'], streets: ['Via Toledo','Spaccanapoli','Corso Umberto I','Via Santa Lucia','Via dei Tribunali'], districts: ['Centro Storico','Chiaia','Posillipo'], areaCode: '081' },
+    ],
     streetAddress: (num, street, city, zip, state) => `${street}, ${num}, ${zip} ${city} (${state})`,
     idLabel: 'Codice Fiscale',
     idFormat: () => {
@@ -308,9 +330,11 @@ const COUNTRIES = {
       female: ['Sofía', 'Valentina', 'Isabella', 'Camila', 'Valeria', 'Lucía', 'Daniela', 'Sara', 'Paula', 'María', 'Carmen', 'Ana', 'Laura', 'Marta', 'Alba']
     },
     lastNames: ['García', 'Martínez', 'López', 'Sánchez', 'González', 'Pérez', 'Rodríguez', 'Fernández', 'Jiménez', 'Díaz', 'Moreno', 'Álvarez', 'Romero', 'Alonso', 'Navarro', 'Torres', 'Domínguez', 'Vázquez', 'Ramos', 'Gil'],
-    cities: ['Madrid', 'Barcelona', 'Valencia', 'Sevilla', 'Zaragoza', 'Málaga', 'Murcia', 'Palma', 'Las Palmas', 'Bilbao', 'Alicante', 'Córdoba', 'Valladolid', 'Vigo', 'Gijón', 'Eixample', 'A Coruña', 'Vitoria-Gasteiz', 'Granada', 'Elche'],
-    streets: ['Calle Mayor', 'Gran Vía', 'Paseo de Gracia', 'Calle de Alcalá', 'Rambla de Cataluña', 'Avenida del Libertador', 'Calle de Serrano', 'Paseo de la Castellana', 'Calle del Arenal', 'Avenida de la Paz'],
-    states: ['Madrid', 'Cataluña', 'Comunidad Valenciana', 'Andalucía', 'Aragón', 'Murcia', 'Baleares', 'Canarias', 'País Vasco', 'Galicia'],
+    cities: [
+      { city: 'Madrid', state: 'Comunidad de Madrid', zips: ['28001','28010','28013'], streets: ['Gran Vía','Paseo de la Castellana','Calle de Serrano','Calle Mayor','Calle de Alcalá'], districts: ['Centro','Salamanca','Chamberí'], areaCode: '91' },
+      { city: 'Barcelona', state: 'Cataluña', zips: ['08001','08010','08036'], streets: ['Paseo de Gracia','Las Ramblas','Avenida Diagonal','Calle de Aragón','Gran Vía de les Corts Catalanes'], districts: ['Eixample','Gràcia','Born'], areaCode: '93' },
+      { city: 'Valencia', state: 'Comunidad Valenciana', zips: ['46001','46011','46021'], streets: ['Calle Colón','Avenida del Puerto','Gran Vía Marqués del Turia','Calle de la Paz','Avenida de Aragón'], districts: ["L'Eixample",'Rascanya','Patraix'], areaCode: '96' },
+    ],
     streetAddress: (num, street, city, zip, state) => `${street} ${num}, ${zip} ${city}, ${state}`,
     idLabel: 'DNI',
     idFormat: () => {
@@ -333,9 +357,11 @@ const COUNTRIES = {
       female: ['Alice', 'Valentina', 'Sophia', 'Isabella', 'Manuela', 'Júlia', 'Helena', 'Laura', 'Luiza', 'Maria', 'Ana', 'Beatriz', 'Gabriela', 'Rafaela', 'Isabela']
     },
     lastNames: ['Silva', 'Santos', 'Oliveira', 'Souza', 'Rodrigues', 'Ferreira', 'Alves', 'Pereira', 'Lima', 'Gomes', 'Costa', 'Ribeiro', 'Martins', 'Carvalho', 'Almeida', 'Lopes', 'Sousa', 'Fernandes', 'Vieira', 'Barbosa'],
-    cities: ['São Paulo', 'Rio de Janeiro', 'Brasília', 'Salvador', 'Fortaleza', 'Belo Horizonte', 'Manaus', 'Curitiba', 'Recife', 'Porto Alegre', 'Belém', 'Goiânia', 'Guarulhos', 'Campinas', 'São Luís', 'Maceió', 'Natal', 'Teresina', 'Campo Grande', 'João Pessoa'],
-    streets: ['Rua das Flores', 'Avenida Paulista', 'Rua Brasil', 'Avenida Brasil', 'Rua das Acácias', 'Travessa da Paz', 'Rua das Palmeiras', 'Avenida Principal', 'Rua do Comércio', 'Rua da Liberdade'],
-    states: ['SP', 'RJ', 'DF', 'BA', 'CE', 'MG', 'AM', 'PR', 'PE', 'RS', 'PA', 'GO', 'MA', 'AL', 'RN', 'PI', 'MS', 'PB', 'MT', 'RO'],
+    cities: [
+      { city: 'São Paulo', state: 'SP', zips: ['01310-000','01402-001','04510-010'], streets: ['Avenida Paulista','Rua Oscar Freire','Avenida Brigadeiro Faria Lima','Rua Augusta','Avenida Rebouças'], districts: ['Jardins','Itaim Bibi','Pinheiros'], areaCode: '11' },
+      { city: 'Rio de Janeiro', state: 'RJ', zips: ['20040-020','22071-900','22450-040'], streets: ['Avenida Rio Branco','Rua das Laranjeiras','Avenida Nossa Senhora de Copacabana','Rua Visconde de Pirajá','Estrada da Gávea'], districts: ['Copacabana','Ipanema','Centro'], areaCode: '21' },
+      { city: 'Brasília', state: 'DF', zips: ['70040-010','70070-010','70200-001'], streets: ['Eixo Monumental','Setor Comercial Sul','Avenida das Nações','Setor Bancário Norte','W3 Sul'], districts: ['Asa Norte','Asa Sul','Lago Sul'], areaCode: '61' },
+    ],
     streetAddress: (num, street, city, zip, state) => `${street}, ${num} - ${city}, ${state}, ${zip}`,
     idLabel: 'CPF',
     idFormat: () => {
@@ -360,9 +386,11 @@ const COUNTRIES = {
       female: ['Saanvi', 'Aadya', 'Kiara', 'Ananya', 'Avni', 'Aadhya', 'Aaradhya', 'Diya', 'Pari', 'Mahi', 'Priya', 'Sneha', 'Pooja', 'Riya', 'Nisha']
     },
     lastNames: ['Sharma', 'Verma', 'Patel', 'Gupta', 'Singh', 'Kumar', 'Yadav', 'Joshi', 'Chauhan', 'Agarwal', 'Mishra', 'Tiwari', 'Pandey', 'Chaudhary', 'Malhotra', 'Mehta', 'Jain', 'Kapoor', 'Bose', 'Roy'],
-    cities: ['Mumbai', 'Delhi', 'Bangalore', 'Hyderabad', 'Ahmedabad', 'Chennai', 'Kolkata', 'Pune', 'Jaipur', 'Lucknow', 'Kanpur', 'Nagpur', 'Indore', 'Thane', 'Bhopal', 'Visakhapatnam', 'Patna', 'Vadodara', 'Ghaziabad', 'Ludhiana'],
-    streets: ['MG Road', 'Nehru Road', 'Gandhi Nagar', 'Shivaji Marg', 'Link Road', 'Park Street', 'Civil Lines', 'Model Town', 'Rajpur Road', 'Station Road', 'GT Road', 'Ring Road', 'Mall Road', 'Church Street', 'Brigade Road'],
-    states: ['Maharashtra', 'Delhi', 'Karnataka', 'Telangana', 'Gujarat', 'Tamil Nadu', 'West Bengal', 'Rajasthan', 'Uttar Pradesh', 'Madhya Pradesh', 'Andhra Pradesh', 'Bihar', 'Haryana', 'Kerala', 'Punjab'],
+    cities: [
+      { city: 'Mumbai', state: 'Maharashtra', zips: ['400001','400051','400093'], streets: ['Marine Drive','Linking Road','S.V. Road','Andheri Kurla Road','L.B.S. Marg'], districts: ['Colaba','Bandra','Andheri'], areaCode: '022' },
+      { city: 'Delhi', state: 'Delhi', zips: ['110001','110006','110019'], streets: ['Connaught Place','Chandni Chowk','Karol Bagh Road','Outer Ring Road','Rohini Road'], districts: ['Connaught Place','Old Delhi','South Delhi'], areaCode: '011' },
+      { city: 'Bangalore', state: 'Karnataka', zips: ['560001','560008','560038'], streets: ['MG Road','Brigade Road','Residency Road','Cunningham Road','Lavelle Road'], districts: ['Indiranagar','Koramangala','Whitefield'], areaCode: '080' },
+    ],
     streetAddress: (num, street, city, zip, state) => `${num}, ${street}, ${city}, ${state} - ${zip}`,
     idLabel: 'Aadhaar',
     idFormat: () => `${rand(1000, 9999)} ${rand(1000, 9999)} ${rand(1000, 9999)}`,
@@ -381,9 +409,11 @@ const COUNTRIES = {
       female: ['Анастасия', 'Мария', 'Дарья', 'Анна', 'Елизавета', 'Екатерина', 'Полина', 'Виктория', 'Алина', 'Варвара', 'Ксения', 'Наталья', 'Надежда', 'Татьяна', 'Ольга']
     },
     lastNames: ['Иванов', 'Смирнов', 'Кузнецов', 'Попов', 'Васильев', 'Петров', 'Соколов', 'Михайлов', 'Новиков', 'Фёдоров', 'Морозов', 'Волков', 'Алексеев', 'Лебедев', 'Семёнов', 'Егоров', 'Павлов', 'Козлов', 'Степанов', 'Николаев'],
-    cities: ['Москва', 'Санкт-Петербург', 'Новосибирск', 'Екатеринбург', 'Нижний Новгород', 'Казань', 'Челябинск', 'Омск', 'Самара', 'Ростов-на-Дону', 'Уфа', 'Красноярск', 'Пермь', 'Воронеж', 'Волгоград', 'Краснодар', 'Саратов', 'Тюмень', 'Тольятти', 'Ижевск'],
-    streets: ['ул. Ленина', 'ул. Мира', 'ул. Советская', 'пр. Победы', 'ул. Гагарина', 'ул. Пушкина', 'ул. Горького', 'ул. Кирова', 'пр. Маршала', 'ул. Строителей'],
-    states: ['Московская область', 'Санкт-Петербург', 'Новосибирская область', 'Свердловская область', 'Нижегородская область', 'Республика Татарстан', 'Челябинская область', 'Омская область'],
+    cities: [
+      { city: 'Москва', state: 'Московская область', zips: ['101000','105005','125009'], streets: ['ул. Тверская','ул. Арбат','пр. Мира','Ленинский проспект','ул. Садовая'], districts: ['Центральный','Северный','Западный'], areaCode: '495' },
+      { city: 'Санкт-Петербург', state: 'Санкт-Петербург', zips: ['190000','191011','194100'], streets: ['Невский проспект','Лиговский проспект','Садовая улица','Московский проспект','ул. Рубинштейна'], districts: ['Центральный','Адмиралтейский','Васильевский'], areaCode: '812' },
+      { city: 'Новосибирск', state: 'Новосибирская область', zips: ['630001','630049','630099'], streets: ['ул. Ленина','Красный проспект','ул. Кирова','пр. Маркса','ул. Советская'], districts: ['Центральный','Железнодорожный','Заельцовский'], areaCode: '383' },
+    ],
     streetAddress: (num, street, city, zip, state) => `${zip}, ${state}, г. ${city}, ${street}, д. ${num}`,
     idLabel: 'СНИЛС',
     idFormat: () => {
@@ -408,9 +438,11 @@ const COUNTRIES = {
       female: ['Sofía', 'Valeria', 'Camila', 'Daniela', 'Isabella', 'Andrea', 'Fernanda', 'Paola', 'María', 'Lucía', 'Gabriela', 'Karen', 'Mariana', 'Ana', 'Natalia']
     },
     lastNames: ['González', 'Rodríguez', 'Martínez', 'García', 'López', 'Hernández', 'Pérez', 'Sánchez', 'Ramírez', 'Torres', 'Flores', 'Rivera', 'Gómez', 'Díaz', 'Cruz', 'Morales', 'Reyes', 'Gutiérrez', 'Ortega', 'Vargas'],
-    cities: ['Ciudad de México', 'Guadalajara', 'Monterrey', 'Puebla', 'Toluca', 'Tijuana', 'León', 'Juárez', 'Zapopan', 'Nezahualcóyotl', 'Mérida', 'San Luis Potosí', 'Querétaro', 'Acapulco', 'Aguascalientes', 'Morelia', 'Culiacán', 'Veracruz', 'Chihuahua', 'Hermosillo'],
-    streets: ['Av. Insurgentes', 'Paseo de la Reforma', 'Av. Universidad', 'Blvd. Hidalgo', 'Av. Juárez', 'Calle Revolución', 'Av. Morelos', 'Calle 5 de Mayo', 'Av. Independencia', 'Calle Constitución'],
-    states: ['Ciudad de México', 'Jalisco', 'Nuevo León', 'Puebla', 'Estado de México', 'Baja California', 'Guanajuato', 'Chihuahua', 'Yucatán', 'Querétaro'],
+    cities: [
+      { city: 'Ciudad de México', state: 'Ciudad de México', zips: ['06600','06700','06010'], streets: ['Av. Insurgentes','Paseo de la Reforma','Av. Presidente Masaryk','Eje Central Lázaro Cárdenas','Av. Chapultepec'], districts: ['Condesa','Polanco','Roma Norte'], areaCode: '55' },
+      { city: 'Guadalajara', state: 'Jalisco', zips: ['44100','44200','44600'], streets: ['Av. Juárez','López Cotilla','Av. Vallarta','Av. México','Calzada Independencia'], districts: ['Centro Histórico','Chapultepec','Tlaquepaque'], areaCode: '33' },
+      { city: 'Monterrey', state: 'Nuevo León', zips: ['64000','64010','64700'], streets: ['Av. Constitución','Av. Eugenio Garza Sada','Av. Miguel Hidalgo','Calzada del Valle','Av. Gonzalitos'], districts: ['Centro','San Pedro Garza García','Santa Catarina'], areaCode: '81' },
+    ],
     streetAddress: (num, street, city, zip, state) => `${street} ${num}, ${city}, ${state}, CP ${zip}`,
     idLabel: 'CURP',
     idFormat: () => {
@@ -442,9 +474,11 @@ const COUNTRIES = {
       female: ['Emma', 'Olivia', 'Ava', 'Mei Ling', 'Xin Yi', 'Yu Ting', 'Priya', 'Deepa', 'Nur', 'Siti', 'Aishah', 'Zara', 'Lily', 'Chloe', 'Mia']
     },
     lastNames: ['Tan', 'Lim', 'Lee', 'Ng', 'Ong', 'Wong', 'Goh', 'Chen', 'Koh', 'Chan', 'Sharma', 'Patel', 'Ahmad', 'Ismail', 'Yusof'],
-    cities: ['Singapore', 'Jurong East', 'Tampines', 'Woodlands', 'Sengkang', 'Punggol', 'Yishun', 'Hougang', 'Bedok', 'Queenstown', 'Geylang', 'Toa Payoh', 'Ang Mo Kio', 'Bishan', 'Bukit Merah'],
-    streets: ['Orchard Road', 'Raffles Place', 'Marina Bay', 'Holland Village', 'Tanjong Pagar', 'Tiong Bahru Road', 'Buona Vista', 'Upper Thomson Road', 'Jalan Besar', 'Telok Blangah'],
-    states: ['Central Region', 'East Region', 'North Region', 'North-East Region', 'West Region'],
+    cities: [
+      { city: 'Singapore', state: 'Central Region', zips: ['048616','059803','178957'], streets: ['Orchard Road','Raffles Place','Marina Bay','Shenton Way','Cecil Street'], districts: ['Orchard','Raffles Place','Marina Bay'], areaCode: '65' },
+      { city: 'Tampines', state: 'East Region', zips: ['520001','520102','521521'], streets: ['Tampines Avenue 1','Tampines Street 21','New Upper Changi Road','Simei Street','Bedok North Road'], districts: ['Tampines','Bedok','Simei'], areaCode: '65' },
+      { city: 'Jurong East', state: 'West Region', zips: ['600100','640200','640300'], streets: ['Jurong Gateway Road','Boon Lay Way','Toh Guan Road','Corporation Road','Pioneer Road North'], districts: ['Jurong East','Jurong West','Boon Lay'], areaCode: '65' },
+    ],
     streetAddress: (num, street, city, zip, state) => `${num} ${street}, Singapore ${zip}`,
     idLabel: 'NRIC',
     idFormat: () => {
@@ -468,9 +502,11 @@ const COUNTRIES = {
       female: ['Nurul', 'Siti', 'Aisyah', 'Fatimah', 'Nadia', 'Wei Ling', 'Xin Yi', 'Mei Fen', 'Priya', 'Kavitha', 'Shanthi', 'Nisha', 'Asha', 'Lim', 'Wong']
     },
     lastNames: ['bin Abdullah', 'binti Ahmad', 'Tan', 'Lim', 'Wong', 'Lee', 'Ng', 'Ong', 'Chin', 'Chan', 'Kumar', 'Rajan', 'Gopal', 'Singh', 'Kaur'],
-    cities: ['Kuala Lumpur', 'Klang', 'Ipoh', 'George Town', 'Petaling Jaya', 'Shah Alam', 'Subang Jaya', 'Johore Bahru', 'Kota Kinabalu', 'Kuching', 'Seremban', 'Alor Setar', 'Miri', 'Sibu', 'Sandakan'],
-    streets: ['Jalan Ampang', 'Jalan Bukit Bintang', 'Jalan Tuanku Abdul Halim', 'Jalan Imbi', 'Jalan Chow Kit', 'Jalan Pudu', 'Jalan Raja Laut', 'Jalan Sultan Ismail', 'Jalan Semarak', 'Jalan Pahang'],
-    states: ['Selangor', 'Kuala Lumpur', 'Johor', 'Pulau Pinang', 'Perak', 'Sabah', 'Sarawak', 'Kedah', 'Kelantan', 'Negeri Sembilan'],
+    cities: [
+      { city: 'Kuala Lumpur', state: 'Kuala Lumpur', zips: ['50000','50088','50450'], streets: ['Jalan Bukit Bintang','Jalan Sultan Ismail','Jalan Ampang','Jalan Imbi','Jalan Pudu'], districts: ['KLCC','Bukit Bintang','Chow Kit'], areaCode: '03' },
+      { city: 'George Town', state: 'Pulau Pinang', zips: ['10000','10050','10100'], streets: ['Jalan Penang','Jalan Burma','Jalan Sultan Ahmad Shah','Jalan Macalister','Jalan Tun Abdul Razak'], districts: ['Georgetown','Batu Ferringhi','Air Itam'], areaCode: '04' },
+      { city: 'Johor Bahru', state: 'Johor', zips: ['80000','80100','80300'], streets: ['Jalan Wong Ah Fook','Jalan Dato Onn','Jalan Skudai','Jalan Tebrau','Jalan Abdul Samad'], districts: ['Johor Bahru City Centre','Larkin','Tampoi'], areaCode: '07' },
+    ],
     streetAddress: (num, street, city, zip, state) => `${num}, ${street}, ${zip} ${city}, ${state}`,
     idLabel: 'MyKad',
     idFormat: () => {
@@ -497,9 +533,11 @@ const COUNTRIES = {
       female: ['สมหญิง', 'สุภาพร', 'รัตนา', 'ประภา', 'กัลยา', 'นภาพร', 'ปิยะนุช', 'ศิริพร', 'วรรณา', 'อรุณ', 'Somporn', 'Rattana', 'Kanlaya', 'Napaporn', 'Siriporn']
     },
     lastNames: ['สมบูรณ์', 'ประสงค์', 'วงศ์วาน', 'รุ่งเรือง', 'สุขสวัสดิ์', 'ชัยชนะ', 'พงศ์พัฒน์', 'บุญมา', 'Somboon', 'Prasong', 'Wongwan', 'Rungrueang', 'Suksawat', 'Chaichana', 'Boonma'],
-    cities: ['กรุงเทพมหานคร', 'นนทบุรี', 'ปากเกร็ด', 'เชียงใหม่', 'นครราชสีมา', 'อุดรธานี', 'หาดใหญ่', 'ภูเก็ต', 'พัทยา', 'ขอนแก่น', 'Bangkok', 'Chiang Mai', 'Pattaya', 'Phuket', 'Khon Kaen'],
-    streets: ['ถนนสุขุมวิท', 'ถนนสีลม', 'ถนนพระราม 4', 'ถนนรัชดาภิเษก', 'ถนนเพชรบุรี', 'Sukhumvit Road', 'Silom Road', 'Rama 4 Road', 'Ratchadaphisek Road', 'Phetburi Road'],
-    states: ['กรุงเทพมหานคร', 'นนทบุรี', 'เชียงใหม่', 'นครราชสีมา', 'ขอนแก่น', 'สงขลา', 'ภูเก็ต', 'ชลบุรี'],
+    cities: [
+      { city: 'Bangkok', state: 'กรุงเทพมหานคร', zips: ['10100','10110','10120'], streets: ['Sukhumvit Road','Silom Road','Rama IV Road','Ratchadaphisek Road','Phetchaburi Road'], districts: ['Pathum Wan','Bang Rak','Watthana'], areaCode: '02' },
+      { city: 'Chiang Mai', state: 'เชียงใหม่', zips: ['50000','50100','50200'], streets: ['Nimman Road','Chang Klan Road','Huay Kaew Road','Wualai Road','Superhighway Road'], districts: ['Mueang','Hang Dong','San Kamphaeng'], areaCode: '053' },
+      { city: 'Phuket', state: 'ภูเก็ต', zips: ['83000','83100','83130'], streets: ['Thepkrasattri Road','Yaowarat Road','Rat-U-Thit Road','Bangla Road','Thalang Road'], districts: ['Mueang','Kathu','Thalang'], areaCode: '076' },
+    ],
     streetAddress: (num, street, city, zip, state) => `${num} ${street}, ${city} ${zip}, ${state}`,
     idLabel: 'หมายเลขบัตรประชาชน',
     idFormat: () => {
@@ -525,9 +563,11 @@ const COUNTRIES = {
       female: ['Lan', 'Hoa', 'Linh', 'Thúy', 'Hương', 'Mai', 'Thu', 'Trang', 'Nhung', 'Yến', 'Ngọc', 'Phương', 'Châu', 'Diễm', 'Trinh']
     },
     lastNames: ['Nguyễn', 'Trần', 'Lê', 'Phạm', 'Hoàng', 'Phan', 'Vũ', 'Đặng', 'Bùi', 'Đỗ', 'Hồ', 'Ngô', 'Dương', 'Lý', 'Đinh'],
-    cities: ['Hà Nội', 'Hồ Chí Minh', 'Đà Nẵng', 'Hải Phòng', 'Cần Thơ', 'Biên Hòa', 'Nha Trang', 'Huế', 'Buôn Ma Thuột', 'Quy Nhơn', 'Vũng Tàu', 'Nam Định', 'Thái Nguyên', 'Vinh', 'Đà Lạt'],
-    streets: ['Đường Trần Phú', 'Phố Huế', 'Đường Lê Lợi', 'Đường Nguyễn Huệ', 'Phố Phan Đình Phùng', 'Đường Hùng Vương', 'Đường 30 tháng 4', 'Đường Nam Kỳ Khởi Nghĩa', 'Đường Hai Bà Trưng', 'Đường Điện Biên Phủ'],
-    states: ['Hà Nội', 'Hồ Chí Minh', 'Đà Nẵng', 'Hải Phòng', 'Cần Thơ', 'Bình Dương', 'Đồng Nai', 'Khánh Hòa'],
+    cities: [
+      { city: 'Hà Nội', state: 'Hà Nội', zips: ['100000','115000','116000'], streets: ['Phố Huế','Đường Đinh Tiên Hoàng','Đường Lê Lợi','Phố Phan Đình Phùng','Đường Hai Bà Trưng'], districts: ['Hoàn Kiếm','Đống Đa','Cầu Giấy'], areaCode: '024' },
+      { city: 'Hồ Chí Minh', state: 'Hồ Chí Minh', zips: ['700000','710000','700900'], streets: ['Đường Nguyễn Huệ','Đường Lê Lợi','Đường Đồng Khởi','Đường Nam Kỳ Khởi Nghĩa','Đường Hai Bà Trưng'], districts: ['Quận 1','Quận 3','Bình Thạnh'], areaCode: '028' },
+      { city: 'Đà Nẵng', state: 'Đà Nẵng', zips: ['550000','551000','552000'], streets: ['Đường Trần Phú','Đường Nguyễn Văn Linh','Đường 2 tháng 9','Đường Điện Biên Phủ','Đường Nguyễn Tất Thành'], districts: ['Hải Châu','Sơn Trà','Ngũ Hành Sơn'], areaCode: '0236' },
+    ],
     streetAddress: (num, street, city, zip, state) => `${num} ${street}, ${city}, ${state} ${zip}`,
     idLabel: 'CCCD',
     idFormat: () => String(rand(100000000000, 999999999999)),
