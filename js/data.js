@@ -746,7 +746,7 @@ const COUNTRIES = {
       male: ['Sipho', 'Thabo', 'Lebo', 'Bongani', 'Thabiso', 'Kagiso', 'Luthando', 'Sandile', 'Nhlanhla', 'Siyanda', 'Tshepo', 'Lungelo', 'Sifiso', 'Mthokozisi', 'Sibusiso'],
       female: ['Nomsa', 'Zanele', 'Thandi', 'Lerato', 'Nompumelelo', 'Ayanda', 'Nokukhanya', 'Sizakele', 'Bongiwe', 'Lungile', 'Nosipho', 'Zinhle', 'Nokuthula', 'Ntombi', 'Nolwazi']
     },
-    lastNames: ['Nkosi', 'Dlamini', 'Nkosi', 'Mahlangu', 'Khumalo', 'Ndlovu', 'Mthembu', 'Ngcobo', 'Mhlongo', 'Bhengu', 'Zulu', 'Xulu', 'Ntanzi', 'Mnguni', 'Khoza'],
+    lastNames: ['Nkosi', 'Dlamini', 'Sithole', 'Mahlangu', 'Khumalo', 'Ndlovu', 'Mthembu', 'Ngcobo', 'Mhlongo', 'Bhengu', 'Zulu', 'Xulu', 'Ntanzi', 'Mnguni', 'Khoza'],
     cities: [
       { city: 'Johannesburg', state: 'Gauteng', zips: ['2000','2001','2107'], streets: ['Commissioner Street','Fox Street','Bree Street','Rissik Street','Jeppe Street'], districts: ['CBD','Sandton','Soweto'], areaCode: '11' },
       { city: 'Cape Town', state: 'Western Cape', zips: ['8000','8001','8005'], streets: ['Long Street','Buitenkant Street','Adderley Street','Strand Street','Kloof Street'], districts: ['City Bowl','Gardens','Sea Point'], areaCode: '21' },
