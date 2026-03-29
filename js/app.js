@@ -337,16 +337,35 @@ function initCountryButtons() {
             data-code="${code}" 
             onclick="selectCountry('${code}')"
             title="${c.name}">
-      ${c.flag} ${c.name}
+      ${c.flag} ${c.name} ${code}
     </button>
   `).join('');
+
+  // Search filtering
+  const searchInput = document.getElementById('country-search');
+  if (searchInput) {
+    searchInput.addEventListener('input', () => {
+      const query = searchInput.value.trim().toLowerCase();
+      document.querySelectorAll('.country-btn').forEach(btn => {
+        const code = btn.dataset.code;
+        const country = COUNTRIES[code];
+        if (!query) {
+          btn.style.display = '';
+        } else {
+          const matchName = country.name.toLowerCase().includes(query);
+          const matchCode = code.toLowerCase().includes(query);
+          btn.style.display = (matchName || matchCode) ? '' : 'none';
+        }
+      });
+    });
+  }
 }
 
 function initCountrySelect() {
   const select = document.getElementById('country-select');
   if (!select) return;
   select.innerHTML = Object.entries(COUNTRIES).map(([code, c]) =>
-    `<option value="${code}" ${code === currentCountry ? 'selected' : ''}>${c.flag} ${c.name}</option>`
+    `<option value="${code}" ${code === currentCountry ? 'selected' : ''}>${c.flag} ${c.name} ${code}</option>`
   ).join('');
   select.addEventListener('change', (e) => selectCountry(e.target.value));
 }

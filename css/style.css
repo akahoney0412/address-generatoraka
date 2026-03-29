@@ -79,6 +79,28 @@ body {
   letter-spacing: 0.5px;
 }
 
+.country-search {
+  width: 100%;
+  padding: 8px 12px;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  font-size: 0.9rem;
+  font-family: inherit;
+  background: #FFFFFF;
+  color: var(--text);
+  margin-bottom: 10px;
+  outline: none;
+  transition: border-color 0.15s;
+}
+
+.country-search:focus {
+  border-color: var(--primary);
+}
+
+.country-search::placeholder {
+  color: var(--text-muted);
+}
+
 #country-buttons {
   display: flex;
   flex-wrap: wrap;
