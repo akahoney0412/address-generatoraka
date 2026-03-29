@@ -14,11 +14,13 @@ function generateIdentity(countryCode) {
   const fullName = `${firstName} ${lastName}`;
   const title = gender === 'Male' ? 'Mr.' : (rand(0, 1) === 0 ? 'Mrs.' : 'Ms.');
 
-  const city = pickRandom(country.cities);
-  const state = pickRandom(country.states);
-  const zip = country.zipFormat();
+  const cityObj = pickRandom(country.cities);
+  const city = cityObj.city;
+  const state = cityObj.state;
+  const zip = pickRandom(cityObj.zips);
   const streetNum = rand(1, 999);
-  const street = pickRandom(country.streets);
+  const street = pickRandom(cityObj.streets);
+  const district = pickRandom(cityObj.districts);
   const streetAddress = country.streetAddress(streetNum, street, city, zip, state);
   const phone = country.phoneFormat();
 
@@ -61,7 +63,7 @@ function generateIdentity(countryCode) {
     title,
     // Address
     streetAddress,
-    district: '',
+    district,
     city,
     zip,
     phone,
@@ -98,6 +100,13 @@ function generateIdentity(countryCode) {
     countryName: country.name,
     countryFlag: country.flag,
   };
+}
+
+function openGoogleMaps() {
+  const address = document.querySelector('[data-field="address"]')?.textContent || '';
+  if (address) {
+    window.open('https://www.google.com/maps/search/?api=1&query=' + encodeURIComponent(address), '_blank');
+  }
 }
 
 function copyToClipboard(text) {
@@ -168,7 +177,8 @@ function renderIdentity(data) {
         { label: '城市', value: data.city, id: 'f-city' },
         { label: '邮编', value: data.zip, id: 'f-zip' },
         { label: '电话号码', value: data.phone, id: 'f-phone' },
-      ]
+      ],
+      extra: `<span data-field="address" style="display:none">${data.streetAddress}, ${data.city}</span><button class="maps-btn" onclick="openGoogleMaps()">📍 在Google Maps查看</button>`,
     },
     {
       id: 'section-email',
@@ -226,6 +236,9 @@ function renderIdentity(data) {
     section.fields.forEach(f => {
       html += renderField(f.label, f.value, f.id);
     });
+    if (section.extra) {
+      html += section.extra;
+    }
     container.innerHTML = html;
   });
 }

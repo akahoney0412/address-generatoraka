@@ -444,3 +444,18 @@ body {
 ::-webkit-scrollbar-thumb:hover {
   background: #94a3b8;
 }
+
+.maps-btn {
+  background: #34a853;
+  color: white;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 14px;
+  margin-top: 8px;
+  transition: background 0.3s;
+}
+.maps-btn:hover {
+  background: #2d8f47;
+}
