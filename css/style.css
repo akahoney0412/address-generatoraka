@@ -459,3 +459,86 @@ body {
 .maps-btn:hover {
   background: #2d8f47;
 }
+
+/* Address Validation Styles */
+.address-validation {
+  margin-top: 10px;
+  padding: 8px 0;
+}
+
+.verified-badge {
+  display: inline-block;
+  background: #dcfce7;
+  color: #16a34a;
+  font-weight: 600;
+  font-size: 13px;
+  padding: 3px 10px;
+  border-radius: 20px;
+  border: 1px solid #86efac;
+}
+
+.unverified-badge {
+  display: inline-block;
+  background: #fff7ed;
+  color: #ea580c;
+  font-weight: 600;
+  font-size: 13px;
+  padding: 3px 10px;
+  border-radius: 20px;
+  border: 1px solid #fdba74;
+}
+
+.offline-badge {
+  display: inline-block;
+  background: #f1f5f9;
+  color: #64748b;
+  font-weight: 600;
+  font-size: 13px;
+  padding: 3px 10px;
+  border-radius: 20px;
+  border: 1px solid #cbd5e1;
+}
+
+.formatted-address {
+  margin-top: 6px;
+  font-size: 13px;
+  color: #334155;
+  background: #f8fafc;
+  border-left: 3px solid #16a34a;
+  padding: 4px 8px;
+  border-radius: 0 4px 4px 0;
+}
+
+.coordinates {
+  margin-top: 4px;
+  font-size: 12px;
+  color: #64748b;
+  font-family: monospace;
+}
+
+.regenerate-btn {
+  display: inline-block;
+  margin-left: 8px;
+  background: #fef3c7;
+  color: #92400e;
+  border: 1px solid #fcd34d;
+  padding: 3px 10px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 12px;
+  transition: background 0.2s;
+}
+.regenerate-btn:hover {
+  background: #fde68a;
+}
+
+.validation-spinner {
+  font-size: 13px;
+  color: #94a3b8;
+  animation: spin-fade 1.2s ease-in-out infinite alternate;
+}
+
+@keyframes spin-fade {
+  from { opacity: 0.5; }
+  to { opacity: 1; }
+}

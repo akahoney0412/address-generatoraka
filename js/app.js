@@ -3,6 +3,30 @@
 let currentCountry = 'US';
 let currentData = null;
 
+// Google Geocoding API 验证地址
+const GOOGLE_API_KEY = 'AIzaSyCzwCz8au4axvmOAuCX66gw3M1kTdnb4Bo';
+
+async function validateAddress(address) {
+  try {
+    const url = `https://maps.googleapis.com/maps/api/geocode/json?address=${encodeURIComponent(address)}&key=${GOOGLE_API_KEY}`;
+    const response = await fetch(url);
+    const data = await response.json();
+
+    if (data.status === 'OK' && data.results.length > 0) {
+      return {
+        valid: true,
+        formatted_address: data.results[0].formatted_address,
+        lat: data.results[0].geometry.location.lat,
+        lng: data.results[0].geometry.location.lng
+      };
+    }
+    return { valid: false };
+  } catch (error) {
+    // 如果网络错误，不阻塞，显示为未验证
+    return { valid: false, error: true };
+  }
+}
+
 function generateIdentity(countryCode) {
   const country = COUNTRIES[countryCode];
   if (!country) return null;
@@ -102,11 +126,15 @@ function generateIdentity(countryCode) {
   };
 }
 
-function openGoogleMaps() {
-  const address = document.querySelector('[data-field="address"]')?.textContent || '';
-  if (address) {
-    window.open('https://www.google.com/maps/search/?api=1&query=' + encodeURIComponent(address), '_blank');
+function openGoogleMaps(lat, lng, address) {
+  let url;
+  if (lat !== undefined && lng !== undefined) {
+    url = `https://www.google.com/maps/search/?api=1&query=${lat},${lng}`;
+  } else {
+    const addr = address || document.querySelector('[data-field="address"]')?.textContent || '';
+    url = `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(addr)}`;
   }
+  window.open(url, '_blank');
 }
 
 function copyToClipboard(text) {
@@ -178,7 +206,13 @@ function renderIdentity(data) {
         { label: '邮编', value: data.zip, id: 'f-zip' },
         { label: '电话号码', value: data.phone, id: 'f-phone' },
       ],
-      extra: `<span data-field="address" style="display:none">${data.streetAddress}, ${data.city}</span><button class="maps-btn" onclick="openGoogleMaps()">📍 在Google Maps查看</button>`,
+      extra: `
+        <span data-field="address" style="display:none">${data.streetAddress}, ${data.city}</span>
+        <div id="address-validation" class="address-validation">
+          <span class="validation-spinner">⏳ 正在验证地址…</span>
+        </div>
+        <button class="maps-btn" id="maps-btn" onclick="openGoogleMaps()">📍 在Google Maps查看</button>
+      `,
     },
     {
       id: 'section-email',
@@ -254,6 +288,36 @@ function generate() {
     void card.offsetWidth;
     card.classList.add('animate-in');
   });
+
+  // Asynchronously validate address
+  if (currentData) {
+    validateAddress(currentData.streetAddress).then(result => {
+      const validationEl = document.getElementById('address-validation');
+      if (!validationEl) return;
+
+      if (result.error) {
+        // Network error — offline mode
+        validationEl.innerHTML = `<span class="offline-badge">🔌 离线模式</span>`;
+      } else if (result.valid) {
+        // Verified — update maps button with precise coordinates
+        const mapsBtn = document.getElementById('maps-btn');
+        if (mapsBtn) {
+          mapsBtn.onclick = () => openGoogleMaps(result.lat, result.lng);
+        }
+        validationEl.innerHTML = `
+          <span class="verified-badge">✅ 已验证</span>
+          <div class="formatted-address">${result.formatted_address}</div>
+          <div class="coordinates">📌 ${result.lat.toFixed(6)}, ${result.lng.toFixed(6)}</div>
+        `;
+      } else {
+        // Not verified
+        validationEl.innerHTML = `
+          <span class="unverified-badge">⚠️ 未验证</span>
+          <button class="regenerate-btn" onclick="generate()">🔄 重新生成</button>
+        `;
+      }
+    });
+  }
 }
 
 function selectCountry(code) {
