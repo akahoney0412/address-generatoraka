@@ -23,7 +23,7 @@ const COUNTRIES = {
       { city: 'Los Angeles', state: 'CA', zips: ['90001','90012','90024'], streets: ['Hollywood Boulevard','Sunset Boulevard','Wilshire Boulevard','Rodeo Drive','Venice Boulevard'], districts: ['Hollywood','Beverly Hills','Santa Monica'], areaCode: '213' },
       { city: 'Chicago', state: 'IL', zips: ['60601','60602','60611'], streets: ['Michigan Avenue','State Street','Lake Shore Drive','Wacker Drive','Clark Street'], districts: ['The Loop','Lincoln Park','Wicker Park'], areaCode: '312' },
     ],
-    streetAddress: (num, street, city, zip, state) => `${num} ${street}, ${city}, ${state} ${zip}`,
+    streetAddress: (num, street, city, zip, state) => `${num} ${street}, ${city}, ${state} ${zip}, USA`,
     idLabel: 'SSN',
     idFormat: () => `${String(rand(100, 999))}-${String(rand(10, 99))}-${String(rand(1000, 9999))}`,
     salaryRange: [3000, 12000],
@@ -51,7 +51,7 @@ const COUNTRIES = {
       { city: 'Manchester', state: 'England', zips: ['M1 1AA','M2 3AB','M4 1HQ'], streets: ['Market Street','Deansgate','Oxford Road','Piccadilly Gardens','Portland Street'], districts: ['City Centre','Salford','Trafford'], areaCode: '0161' },
       { city: 'Edinburgh', state: 'Scotland', zips: ['EH1 1AA','EH2 2AB','EH3 5AT'], streets: ['Princes Street','Royal Mile','George Street','Leith Walk','Morningside Road'], districts: ['Old Town','New Town','Leith'], areaCode: '0131' },
     ],
-    streetAddress: (num, street, city, zip, state) => `${num} ${street}, ${city}, ${zip}, ${state}`,
+    streetAddress: (num, street, city, zip, state) => `${num} ${street}, ${city} ${zip}, UK`,
     idLabel: 'NI Number',
     idFormat: () => {
       const l = 'ABCDEFGHIJKLMNOPRSTUVWXY';
@@ -68,17 +68,17 @@ const COUNTRIES = {
     phoneFormat: () => `+86 1${['3','4','5','7','8'][rand(0,4)]}${rand(100000000, 999999999)}`,
     zipFormat: () => String(rand(100000, 999999)),
     firstNames: {
-      male: ['伟', '强', '磊', '军', '勇', '涛', '超', '明', '建', '峰', '杰', '鑫', '博', '浩', '宇'],
-      female: ['芳', '娜', '敏', '静', '秀英', '慧', '艳', '娟', '婷', '丽', '燕', '玲', '雪', '洁', '梅']
+      male: ['Wei', 'Qiang', 'Lei', 'Jun', 'Yong', 'Tao', 'Chao', 'Ming', 'Jian', 'Feng', 'Jie', 'Xin', 'Bo', 'Hao', 'Yu'],
+      female: ['Fang', 'Na', 'Min', 'Jing', 'Xiuying', 'Hui', 'Yan', 'Juan', 'Ting', 'Li', 'Yan', 'Ling', 'Xue', 'Jie', 'Mei']
     },
-    lastNames: ['王', '李', '张', '刘', '陈', '杨', '黄', '赵', '吴', '周', '徐', '孙', '马', '朱', '胡', '郭', '何', '高', '林', '郑'],
+    lastNames: ['Wang', 'Li', 'Zhang', 'Liu', 'Chen', 'Yang', 'Huang', 'Zhao', 'Wu', 'Zhou', 'Xu', 'Sun', 'Ma', 'Zhu', 'Hu', 'Guo', 'He', 'Gao', 'Lin', 'Zheng'],
     cities: [
-      { city: '北京', state: '', zips: ['100001','100020','100080'], streets: ['长安街','王府井大街','西单大街','朝阳路','建国门外大街'], districts: ['东城区','西城区','朝阳区'], areaCode: '010' },
-      { city: '上海', state: '', zips: ['200001','200010','200025'], streets: ['南京路','淮海路','人民大道','四川北路','外滩'], districts: ['黄浦区','浦东新区','静安区'], areaCode: '021' },
-      { city: '广州', state: '广东省', zips: ['510000','510010','510095'], streets: ['天河路','北京路','中山大道','越秀路','环市东路'], districts: ['天河区','越秀区','海珠区'], areaCode: '020' },
+      { city: 'Beijing', state: 'Beijing', zips: ['100001','100020','100080'], streets: ['Changan Avenue','Wangfujing Street','Xidan Street','Chaoyang Road','Jianguomenwai Avenue'], districts: ['Dongcheng','Xicheng','Chaoyang'], areaCode: '010' },
+      { city: 'Shanghai', state: 'Shanghai', zips: ['200001','200010','200025'], streets: ['Nanjing Road','Huaihai Road','Renmin Avenue','Sichuan North Road','The Bund'], districts: ['Huangpu','Pudong','Jing\'an'], areaCode: '021' },
+      { city: 'Guangzhou', state: 'Guangdong', zips: ['510000','510010','510095'], streets: ['Tianhe Road','Beijing Road','Zhongshan Avenue','Yuexiu Road','Huanshi East Road'], districts: ['Tianhe','Yuexiu','Haizhu'], areaCode: '020' },
     ],
-    streetAddress: (num, street, city, zip, state) => `${state}${city}市${street}${num}号`,
-    idLabel: '身份证号',
+    streetAddress: (num, street, city, zip, state) => `${num} ${street}, ${city} ${zip}, China`,
+    idLabel: 'ID Card',
     idFormat: () => {
       const provinces = ['11', '12', '13', '14', '15', '21', '22', '23', '31', '32', '33', '34', '35', '36', '37', '41', '42', '43', '44', '45'];
       const prov = provinces[rand(0, provinces.length-1)];
@@ -103,17 +103,17 @@ const COUNTRIES = {
     phoneFormat: () => `+81 ${rand(10, 99)}-${rand(1000, 9999)}-${rand(1000, 9999)}`,
     zipFormat: () => `${String(rand(100, 999))}-${String(rand(1000, 9999))}`,
     firstNames: {
-      male: ['大翔', '蓮', '悠真', '陽翔', '湊', '結翔', '樹', '朝陽', '晴', '颯', '翔', '海', '大和', '葵', '律'],
-      female: ['陽菜', '凜', '結菜', '紬', '杏', '葵', '咲良', '美羽', '莉子', '心春', '花', '桃', '優', '愛', '澪']
+      male: ['Hiroto', 'Ren', 'Yuma', 'Haruto', 'Minato', 'Yuto', 'Itsuki', 'Asahi', 'Haru', 'Hayate', 'Sho', 'Kai', 'Yamato', 'Aoi', 'Ritsu'],
+      female: ['Hina', 'Rin', 'Yuna', 'Tsumugi', 'An', 'Aoi', 'Sakura', 'Miwa', 'Riko', 'Koharu', 'Hana', 'Momo', 'Yu', 'Ai', 'Mio']
     },
-    lastNames: ['佐藤', '鈴木', '高橋', '田中', '伊藤', '渡辺', '山本', '中村', '小林', '加藤', '吉田', '山田', '佐々木', '山口', '松本', '井上', '木村', '林', '斉藤', '清水'],
+    lastNames: ['Sato', 'Suzuki', 'Takahashi', 'Tanaka', 'Ito', 'Watanabe', 'Yamamoto', 'Nakamura', 'Kobayashi', 'Kato', 'Yoshida', 'Yamada', 'Sasaki', 'Yamaguchi', 'Matsumoto', 'Inoue', 'Kimura', 'Hayashi', 'Saito', 'Shimizu'],
     cities: [
-      { city: '東京', state: '東京都', zips: ['100-0001','101-0021','102-0082'], streets: ['銀座通り','新宿大通り','渋谷センター街','池袋西口','秋葉原駅前'], districts: ['千代田区','新宿区','渋谷区'], areaCode: '03' },
-      { city: '大阪', state: '大阪府', zips: ['530-0001','542-0076','556-0011'], streets: ['御堂筋','心斎橋筋','なんば大通り','天王寺通り','北堀江'], districts: ['北区','中央区','浪速区'], areaCode: '06' },
-      { city: '名古屋', state: '愛知県', zips: ['460-0001','461-0001','462-0819'], streets: ['錦通','大津通り','広小路通り','栄通','久屋大通'], districts: ['中区','東区','千種区'], areaCode: '052' },
+      { city: 'Tokyo', state: 'Tokyo', zips: ['100-0001','150-0001','160-0022'], streets: ['Ginza', 'Shinjuku-dori','Shibuya Center-gai','Ikebukuro West Gate Street','Asakusa-dori'], districts: ['Chiyoda','Shinjuku','Shibuya'], areaCode: '03' },
+      { city: 'Osaka', state: 'Osaka', zips: ['530-0001','542-0076','556-0011'], streets: ['Midosuji','Shinsaibashi-suji','Namba-dori','Tennoji-dori','Kita-horie'], districts: ['Kita','Chuo','Naniwa'], areaCode: '06' },
+      { city: 'Nagoya', state: 'Aichi', zips: ['460-0001','461-0001','462-0819'], streets: ['Nishiki-dori','Otsu-dori','Hirokoji','Sakae-dori','Hisaya-odori'], districts: ['Naka','Higashi','Chikusa'], areaCode: '052' },
     ],
-    streetAddress: (num, street, city, zip, state) => `〒${zip} ${state}${city}市${street}${num}丁目`,
-    idLabel: 'マイナンバー',
+    streetAddress: (num, street, city, zip, state) => `${num}-${rand(1,9)}-${rand(1,20)} ${street}, ${city} ${zip}, Japan`,
+    idLabel: 'My Number',
     idFormat: () => String(rand(100000000000, 999999999999)),
     salaryRange: [200000, 800000],
   },
@@ -126,17 +126,17 @@ const COUNTRIES = {
     phoneFormat: () => `+82 ${rand(10, 99)}-${rand(1000, 9999)}-${rand(1000, 9999)}`,
     zipFormat: () => String(rand(10000, 99999)),
     firstNames: {
-      male: ['민준', '서준', '도윤', '예준', '시우', '하준', '지호', '준서', '준우', '현우', '지훈', '건우', '우진', '선호', '서진'],
-      female: ['서연', '서윤', '지우', '서현', '하은', '하윤', '민서', '지유', '윤서', '채원', '수아', '지아', '지민', '아린', '예은']
+      male: ['Minjun', 'Seojun', 'Doyun', 'Yejun', 'Siwoo', 'Hajun', 'Jiho', 'Junseo', 'Junwoo', 'Hyunwoo', 'Jihun', 'Geonwoo', 'Woojin', 'Seonho', 'Seojin'],
+      female: ['Seoyeon', 'Seoyun', 'Jiwoo', 'Seohyeon', 'Haeun', 'Hayoon', 'Minseo', 'Jiyu', 'Yunseo', 'Chaewon', 'Sua', 'Jia', 'Jimin', 'Arin', 'Yeeun']
     },
-    lastNames: ['김', '이', '박', '최', '정', '강', '조', '윤', '장', '임', '한', '오', '서', '신', '권', '황', '안', '송', '류', '전'],
+    lastNames: ['Kim', 'Lee', 'Park', 'Choi', 'Jung', 'Kang', 'Jo', 'Yoon', 'Jang', 'Lim', 'Han', 'Oh', 'Seo', 'Shin', 'Kwon', 'Hwang', 'An', 'Song', 'Ryu', 'Jeon'],
     cities: [
-      { city: '서울', state: '서울특별시', zips: ['04524','06141','03080'], streets: ['강남대로','테헤란로','종로','세종대로','을지로'], districts: ['강남구','종로구','중구'], areaCode: '02' },
-      { city: '부산', state: '부산광역시', zips: ['48058','47012','49200'], streets: ['해운대로','중앙대로','광복로','동래로','사직로'], districts: ['해운대구','중구','동래구'], areaCode: '051' },
-      { city: '인천', state: '인천광역시', zips: ['22100','21565','22300'], streets: ['경인로','인하로','부평대로','주안로','송도대로'], districts: ['중구','부평구','연수구'], areaCode: '032' },
+      { city: 'Seoul', state: 'Seoul', zips: ['04524','06141','03080'], streets: ['Gangnam-daero','Teheran-ro','Jongno','Sejongno','Eulji-ro'], districts: ['Gangnam-gu','Jongno-gu','Jung-gu'], areaCode: '02' },
+      { city: 'Busan', state: 'Busan', zips: ['48058','47012','49200'], streets: ['Haeundae-ro','Jungang-daero','Gwangbok-ro','Dongnae-ro','Sajik-ro'], districts: ['Haeundae-gu','Jung-gu','Dongnae-gu'], areaCode: '051' },
+      { city: 'Incheon', state: 'Incheon', zips: ['22100','21565','22300'], streets: ['Gyeongin-ro','Inha-ro','Bupyeong-daero','Juan-ro','Songdo-daero'], districts: ['Jung-gu','Bupyeong-gu','Yeonsu-gu'], areaCode: '032' },
     ],
-    streetAddress: (num, street, city, zip, state) => `${state} ${city} ${street} ${num}`,
-    idLabel: '주민등록번호',
+    streetAddress: (num, street, city, zip, state) => `${num} ${street}, ${city} ${zip}, South Korea`,
+    idLabel: 'Resident Registration Number',
     idFormat: () => {
       const year = rand(60, 99);
       const month = String(rand(1, 12)).padStart(2, '0');
@@ -188,7 +188,7 @@ const COUNTRIES = {
       { city: 'München', state: 'Bayern', zips: ['80331','80333','80469'], streets: ['Maximilianstraße','Leopoldstraße','Marienplatz','Kaufingerstraße','Nymphenburger Straße'], districts: ['Altstadt','Schwabing','Maxvorstadt'], areaCode: '089' },
       { city: 'Hamburg', state: 'Hamburg', zips: ['20095','20144','20357'], streets: ['Mönckebergstraße','Jungfernstieg','Reeperbahn','Eppendorfer Baum','Wandsbeker Marktstraße'], districts: ['Altstadt','Eimsbüttel','Eppendorf'], areaCode: '040' },
     ],
-    streetAddress: (num, street, city, zip, state) => `${street} ${num}, ${zip} ${city}, ${state}`,
+    streetAddress: (num, street, city, zip, state) => `${street} ${num}, ${zip} ${city}, Germany`,
     idLabel: 'Personalausweis',
     idFormat: () => {
       const letters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
@@ -217,7 +217,7 @@ const COUNTRIES = {
       { city: 'Lyon', state: 'Auvergne-Rhône-Alpes', zips: ['69001','69002','69003'], streets: ['Rue de la République','Place Bellecour','Quai des Célestins','Cours Lafayette','Rue Mercière'], districts: ["Presqu'île",'Vieux-Lyon','Part-Dieu'], areaCode: '04' },
       { city: 'Marseille', state: "Provence-Alpes-Côte d'Azur", zips: ['13001','13002','13008'], streets: ['La Canebière','Rue de Rome','Avenue du Prado','Boulevard Longchamp','Cours Julien'], districts: ['Le Panier','Noailles','Vieux-Port'], areaCode: '04' },
     ],
-    streetAddress: (num, street, city, zip, state) => `${num} ${street}, ${zip} ${city}, ${state}`,
+    streetAddress: (num, street, city, zip, state) => `${num} ${street}, ${zip} ${city}, France`,
     idLabel: 'Numéro de Sécurité Sociale',
     idFormat: () => {
       const sex = rand(1, 2);
@@ -249,7 +249,7 @@ const COUNTRIES = {
       { city: 'Melbourne', state: 'VIC', zips: ['3000','3004','3008'], streets: ['Collins Street','Bourke Street','Flinders Street','Swanston Street','Chapel Street'], districts: ['CBD','South Yarra','Fitzroy'], areaCode: '03' },
       { city: 'Brisbane', state: 'QLD', zips: ['4000','4101','4169'], streets: ['Queen Street','George Street','Edward Street','Adelaide Street','Brunswick Street'], districts: ['CBD','South Bank','Fortitude Valley'], areaCode: '07' },
     ],
-    streetAddress: (num, street, city, zip, state) => `${num} ${street}, ${city} ${state} ${zip}`,
+    streetAddress: (num, street, city, zip, state) => `${num} ${street}, ${city} ${state} ${zip}, Australia`,
     idLabel: 'Tax File Number',
     idFormat: () => `${rand(100, 999)} ${rand(100, 999)} ${rand(100, 999)}`,
     salaryRange: [4000, 15000],
@@ -278,7 +278,7 @@ const COUNTRIES = {
       { city: 'Vancouver', state: 'BC', zips: ['V5K 0A1','V6B 1A1','V6Z 2H3'], streets: ['Granville Street','Robson Street','Hastings Street','Georgia Street','Davie Street'], districts: ['Downtown','Kitsilano','Mount Pleasant'], areaCode: '604' },
       { city: 'Montreal', state: 'QC', zips: ['H2Y 1C6','H3A 0A1','H3G 1T7'], streets: ['Rue Sainte-Catherine','Boulevard Saint-Laurent','Avenue du Parc','Rue Sherbrooke','Avenue du Mont-Royal'], districts: ['Plateau-Mont-Royal','Ville-Marie','Rosemont'], areaCode: '514' },
     ],
-    streetAddress: (num, street, city, zip, state) => `${num} ${street}, ${city}, ${state} ${zip}`,
+    streetAddress: (num, street, city, zip, state) => `${num} ${street}, ${city}, ${state} ${zip}, Canada`,
     idLabel: 'SIN',
     idFormat: () => `${rand(100, 999)} ${rand(100, 999)} ${rand(100, 999)}`,
     salaryRange: [3500, 12000],
@@ -301,7 +301,7 @@ const COUNTRIES = {
       { city: 'Milano', state: 'Lombardia', zips: ['20100','20121','20135'], streets: ['Corso Buenos Aires','Via Torino','Via Dante','Corso Vittorio Emanuele II','Via Montenapoleone'], districts: ['Duomo','Navigli','Brera'], areaCode: '02' },
       { city: 'Napoli', state: 'Campania', zips: ['80100','80121','80138'], streets: ['Via Toledo','Spaccanapoli','Corso Umberto I','Via Santa Lucia','Via dei Tribunali'], districts: ['Centro Storico','Chiaia','Posillipo'], areaCode: '081' },
     ],
-    streetAddress: (num, street, city, zip, state) => `${street}, ${num}, ${zip} ${city} (${state})`,
+    streetAddress: (num, street, city, zip, state) => `${street}, ${num}, ${zip} ${city}, Italy`,
     idLabel: 'Codice Fiscale',
     idFormat: () => {
       const letters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
@@ -335,7 +335,7 @@ const COUNTRIES = {
       { city: 'Barcelona', state: 'Cataluña', zips: ['08001','08010','08036'], streets: ['Paseo de Gracia','Las Ramblas','Avenida Diagonal','Calle de Aragón','Gran Vía de les Corts Catalanes'], districts: ['Eixample','Gràcia','Born'], areaCode: '93' },
       { city: 'Valencia', state: 'Comunidad Valenciana', zips: ['46001','46011','46021'], streets: ['Calle Colón','Avenida del Puerto','Gran Vía Marqués del Turia','Calle de la Paz','Avenida de Aragón'], districts: ["L'Eixample",'Rascanya','Patraix'], areaCode: '96' },
     ],
-    streetAddress: (num, street, city, zip, state) => `${street} ${num}, ${zip} ${city}, ${state}`,
+    streetAddress: (num, street, city, zip, state) => `${street} ${num}, ${zip} ${city}, Spain`,
     idLabel: 'DNI',
     idFormat: () => {
       const letters = 'TRWAGMYFPDXBNJZSQVHLCKE';
@@ -362,7 +362,7 @@ const COUNTRIES = {
       { city: 'Rio de Janeiro', state: 'RJ', zips: ['20040-020','22071-900','22450-040'], streets: ['Avenida Rio Branco','Rua das Laranjeiras','Avenida Nossa Senhora de Copacabana','Rua Visconde de Pirajá','Estrada da Gávea'], districts: ['Copacabana','Ipanema','Centro'], areaCode: '21' },
       { city: 'Brasília', state: 'DF', zips: ['70040-010','70070-010','70200-001'], streets: ['Eixo Monumental','Setor Comercial Sul','Avenida das Nações','Setor Bancário Norte','W3 Sul'], districts: ['Asa Norte','Asa Sul','Lago Sul'], areaCode: '61' },
     ],
-    streetAddress: (num, street, city, zip, state) => `${street}, ${num} - ${city}, ${state}, ${zip}`,
+    streetAddress: (num, street, city, zip, state) => `${street}, ${num} - ${city}, ${state}, ${zip}, Brazil`,
     idLabel: 'CPF',
     idFormat: () => {
       const p1 = rand(100, 999);
@@ -391,7 +391,7 @@ const COUNTRIES = {
       { city: 'Delhi', state: 'Delhi', zips: ['110001','110006','110019'], streets: ['Connaught Place','Chandni Chowk','Karol Bagh Road','Outer Ring Road','Rohini Road'], districts: ['Connaught Place','Old Delhi','South Delhi'], areaCode: '011' },
       { city: 'Bangalore', state: 'Karnataka', zips: ['560001','560008','560038'], streets: ['MG Road','Brigade Road','Residency Road','Cunningham Road','Lavelle Road'], districts: ['Indiranagar','Koramangala','Whitefield'], areaCode: '080' },
     ],
-    streetAddress: (num, street, city, zip, state) => `${num}, ${street}, ${city}, ${state} - ${zip}`,
+    streetAddress: (num, street, city, zip, state) => `${num}, ${street}, ${city}, ${state} - ${zip}, India`,
     idLabel: 'Aadhaar',
     idFormat: () => `${rand(1000, 9999)} ${rand(1000, 9999)} ${rand(1000, 9999)}`,
     salaryRange: [20000, 150000],
@@ -405,17 +405,17 @@ const COUNTRIES = {
     phoneFormat: () => `+7 (${rand(900, 999)}) ${rand(100, 999)}-${rand(10, 99)}-${rand(10, 99)}`,
     zipFormat: () => String(rand(100000, 999999)),
     firstNames: {
-      male: ['Александр', 'Дмитрий', 'Максим', 'Сергей', 'Андрей', 'Алексей', 'Артём', 'Илья', 'Кирилл', 'Михаил', 'Никита', 'Иван', 'Роман', 'Владимир', 'Егор'],
-      female: ['Анастасия', 'Мария', 'Дарья', 'Анна', 'Елизавета', 'Екатерина', 'Полина', 'Виктория', 'Алина', 'Варвара', 'Ксения', 'Наталья', 'Надежда', 'Татьяна', 'Ольга']
+      male: ['Alexander', 'Dmitry', 'Maxim', 'Sergey', 'Andrey', 'Alexey', 'Artyom', 'Ilya', 'Kirill', 'Mikhail', 'Nikita', 'Ivan', 'Roman', 'Vladimir', 'Yegor'],
+      female: ['Anastasia', 'Maria', 'Daria', 'Anna', 'Elizaveta', 'Ekaterina', 'Polina', 'Victoria', 'Alina', 'Varvara', 'Ksenia', 'Natalia', 'Nadezhda', 'Tatiana', 'Olga']
     },
-    lastNames: ['Иванов', 'Смирнов', 'Кузнецов', 'Попов', 'Васильев', 'Петров', 'Соколов', 'Михайлов', 'Новиков', 'Фёдоров', 'Морозов', 'Волков', 'Алексеев', 'Лебедев', 'Семёнов', 'Егоров', 'Павлов', 'Козлов', 'Степанов', 'Николаев'],
+    lastNames: ['Ivanov', 'Smirnov', 'Kuznetsov', 'Popov', 'Vasiliev', 'Petrov', 'Sokolov', 'Mikhailov', 'Novikov', 'Fyodorov', 'Morozov', 'Volkov', 'Alexeyev', 'Lebedev', 'Semyonov', 'Yegorov', 'Pavlov', 'Kozlov', 'Stepanov', 'Nikolaev'],
     cities: [
-      { city: 'Москва', state: 'Московская область', zips: ['101000','105005','125009'], streets: ['ул. Тверская','ул. Арбат','пр. Мира','Ленинский проспект','ул. Садовая'], districts: ['Центральный','Северный','Западный'], areaCode: '495' },
-      { city: 'Санкт-Петербург', state: 'Санкт-Петербург', zips: ['190000','191011','194100'], streets: ['Невский проспект','Лиговский проспект','Садовая улица','Московский проспект','ул. Рубинштейна'], districts: ['Центральный','Адмиралтейский','Васильевский'], areaCode: '812' },
-      { city: 'Новосибирск', state: 'Новосибирская область', zips: ['630001','630049','630099'], streets: ['ул. Ленина','Красный проспект','ул. Кирова','пр. Маркса','ул. Советская'], districts: ['Центральный','Железнодорожный','Заельцовский'], areaCode: '383' },
+      { city: 'Moscow', state: 'Moscow Oblast', zips: ['101000','105005','125009'], streets: ['Tverskaya Street','Arbat Street','Mira Avenue','Leninsky Prospekt','Sadovaya Street'], districts: ['Central','Northern','Western'], areaCode: '495' },
+      { city: 'Saint Petersburg', state: 'Saint Petersburg', zips: ['190000','191011','194100'], streets: ['Nevsky Prospekt','Ligovsky Prospekt','Sadovaya Street','Moskovsky Prospekt','Rubinsteina Street'], districts: ['Central','Admiralteysky','Vasilyevsky'], areaCode: '812' },
+      { city: 'Novosibirsk', state: 'Novosibirsk Oblast', zips: ['630001','630049','630099'], streets: ['Lenin Street','Krasny Prospekt','Kirov Street','Marks Prospekt','Sovetskaya Street'], districts: ['Central','Zheleznodorozhny','Zaeltsovsky'], areaCode: '383' },
     ],
-    streetAddress: (num, street, city, zip, state) => `${zip}, ${state}, г. ${city}, ${street}, д. ${num}`,
-    idLabel: 'СНИЛС',
+    streetAddress: (num, street, city, zip, state) => `${num} ${street}, ${city} ${zip}, Russia`,
+    idLabel: 'SNILS',
     idFormat: () => {
       const p1 = String(rand(100, 999));
       const p2 = String(rand(100, 999));
@@ -443,7 +443,7 @@ const COUNTRIES = {
       { city: 'Guadalajara', state: 'Jalisco', zips: ['44100','44200','44600'], streets: ['Av. Juárez','López Cotilla','Av. Vallarta','Av. México','Calzada Independencia'], districts: ['Centro Histórico','Chapultepec','Tlaquepaque'], areaCode: '33' },
       { city: 'Monterrey', state: 'Nuevo León', zips: ['64000','64010','64700'], streets: ['Av. Constitución','Av. Eugenio Garza Sada','Av. Miguel Hidalgo','Calzada del Valle','Av. Gonzalitos'], districts: ['Centro','San Pedro Garza García','Santa Catarina'], areaCode: '81' },
     ],
-    streetAddress: (num, street, city, zip, state) => `${street} ${num}, ${city}, ${state}, CP ${zip}`,
+    streetAddress: (num, street, city, zip, state) => `${street} ${num}, ${city}, ${state}, CP ${zip}, Mexico`,
     idLabel: 'CURP',
     idFormat: () => {
       const letters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
@@ -479,7 +479,7 @@ const COUNTRIES = {
       { city: 'Tampines', state: 'East Region', zips: ['520001','520102','521521'], streets: ['Tampines Avenue 1','Tampines Street 21','New Upper Changi Road','Simei Street','Bedok North Road'], districts: ['Tampines','Bedok','Simei'], areaCode: '65' },
       { city: 'Jurong East', state: 'West Region', zips: ['600100','640200','640300'], streets: ['Jurong Gateway Road','Boon Lay Way','Toh Guan Road','Corporation Road','Pioneer Road North'], districts: ['Jurong East','Jurong West','Boon Lay'], areaCode: '65' },
     ],
-    streetAddress: (num, street, city, zip, state) => `${num} ${street}, Singapore ${zip}`,
+    streetAddress: (num, street, city, zip, state) => `${num} ${street}, ${city} ${zip}, Singapore`,
     idLabel: 'NRIC',
     idFormat: () => {
       const prefix = ['S', 'T', 'F', 'G'][rand(0, 3)];
@@ -507,7 +507,7 @@ const COUNTRIES = {
       { city: 'George Town', state: 'Pulau Pinang', zips: ['10000','10050','10100'], streets: ['Jalan Penang','Jalan Burma','Jalan Sultan Ahmad Shah','Jalan Macalister','Jalan Tun Abdul Razak'], districts: ['Georgetown','Batu Ferringhi','Air Itam'], areaCode: '04' },
       { city: 'Johor Bahru', state: 'Johor', zips: ['80000','80100','80300'], streets: ['Jalan Wong Ah Fook','Jalan Dato Onn','Jalan Skudai','Jalan Tebrau','Jalan Abdul Samad'], districts: ['Johor Bahru City Centre','Larkin','Tampoi'], areaCode: '07' },
     ],
-    streetAddress: (num, street, city, zip, state) => `${num}, ${street}, ${zip} ${city}, ${state}`,
+    streetAddress: (num, street, city, zip, state) => `${num}, ${street}, ${zip} ${city}, Malaysia`,
     idLabel: 'MyKad',
     idFormat: () => {
       const year = rand(60, 99);
@@ -529,17 +529,17 @@ const COUNTRIES = {
     phoneFormat: () => `+66 ${rand(80, 99)}-${rand(100, 999)}-${rand(1000, 9999)}`,
     zipFormat: () => String(rand(10000, 99999)),
     firstNames: {
-      male: ['สมชาย', 'สมศักดิ์', 'วิชัย', 'ประสิทธิ์', 'สุรชัย', 'ธนวัฒน์', 'กิตติพงศ์', 'ปรีชา', 'ชัยพร', 'วิทยา', 'Somchai', 'Wichai', 'Thanawat', 'Kittipong', 'Chaiyaphon'],
-      female: ['สมหญิง', 'สุภาพร', 'รัตนา', 'ประภา', 'กัลยา', 'นภาพร', 'ปิยะนุช', 'ศิริพร', 'วรรณา', 'อรุณ', 'Somporn', 'Rattana', 'Kanlaya', 'Napaporn', 'Siriporn']
+      male: ['Somchai', 'Somsak', 'Wichai', 'Prasit', 'Surachai', 'Thanawat', 'Kittipong', 'Preecha', 'Chaiyaphon', 'Witthaya', 'Nattapong', 'Panya', 'Krit', 'Pongsakorn', 'Theerasak'],
+      female: ['Somying', 'Supaporn', 'Rattana', 'Prapa', 'Kanlaya', 'Napaphon', 'Piyanuch', 'Siriporn', 'Wanna', 'Arun', 'Kannika', 'Pornpan', 'Wassana', 'Nanthida', 'Patcharee']
     },
-    lastNames: ['สมบูรณ์', 'ประสงค์', 'วงศ์วาน', 'รุ่งเรือง', 'สุขสวัสดิ์', 'ชัยชนะ', 'พงศ์พัฒน์', 'บุญมา', 'Somboon', 'Prasong', 'Wongwan', 'Rungrueang', 'Suksawat', 'Chaichana', 'Boonma'],
+    lastNames: ['Somboon', 'Prasong', 'Wongwan', 'Rungrueang', 'Suksawat', 'Chaichana', 'Phongphat', 'Boonma', 'Jaidee', 'Khongchai', 'Saengmanee', 'Buakaew', 'Phatthanasiri', 'Kitisak', 'Wongsawat'],
     cities: [
-      { city: 'Bangkok', state: 'กรุงเทพมหานคร', zips: ['10100','10110','10120'], streets: ['Sukhumvit Road','Silom Road','Rama IV Road','Ratchadaphisek Road','Phetchaburi Road'], districts: ['Pathum Wan','Bang Rak','Watthana'], areaCode: '02' },
-      { city: 'Chiang Mai', state: 'เชียงใหม่', zips: ['50000','50100','50200'], streets: ['Nimman Road','Chang Klan Road','Huay Kaew Road','Wualai Road','Superhighway Road'], districts: ['Mueang','Hang Dong','San Kamphaeng'], areaCode: '053' },
-      { city: 'Phuket', state: 'ภูเก็ต', zips: ['83000','83100','83130'], streets: ['Thepkrasattri Road','Yaowarat Road','Rat-U-Thit Road','Bangla Road','Thalang Road'], districts: ['Mueang','Kathu','Thalang'], areaCode: '076' },
+      { city: 'Bangkok', state: 'Bangkok', zips: ['10100','10110','10120'], streets: ['Sukhumvit Road','Silom Road','Rama IV Road','Ratchadaphisek Road','Phetchaburi Road'], districts: ['Pathum Wan','Bang Rak','Watthana'], areaCode: '02' },
+      { city: 'Chiang Mai', state: 'Chiang Mai', zips: ['50000','50100','50200'], streets: ['Nimman Road','Chang Klan Road','Huay Kaew Road','Wualai Road','Superhighway Road'], districts: ['Mueang','Hang Dong','San Kamphaeng'], areaCode: '053' },
+      { city: 'Phuket', state: 'Phuket', zips: ['83000','83100','83130'], streets: ['Thepkrasattri Road','Yaowarat Road','Rat-U-Thit Road','Bangla Road','Thalang Road'], districts: ['Mueang','Kathu','Thalang'], areaCode: '076' },
     ],
-    streetAddress: (num, street, city, zip, state) => `${num} ${street}, ${city} ${zip}, ${state}`,
-    idLabel: 'หมายเลขบัตรประชาชน',
+    streetAddress: (num, street, city, zip, state) => `${num} ${street}, ${city} ${zip}, Thailand`,
+    idLabel: 'Thai National ID',
     idFormat: () => {
       const p1 = rand(1, 8);
       const p2 = String(rand(1000, 9999));
@@ -559,16 +559,16 @@ const COUNTRIES = {
     phoneFormat: () => `+84 ${rand(90, 99)}-${rand(100, 999)}-${rand(1000, 9999)}`,
     zipFormat: () => String(rand(100000, 999999)),
     firstNames: {
-      male: ['Minh', 'Hùng', 'Đức', 'Tuấn', 'Quang', 'Thành', 'Bảo', 'Khoa', 'Nam', 'Hưng', 'Dũng', 'Tùng', 'Phúc', 'Anh', 'Việt'],
-      female: ['Lan', 'Hoa', 'Linh', 'Thúy', 'Hương', 'Mai', 'Thu', 'Trang', 'Nhung', 'Yến', 'Ngọc', 'Phương', 'Châu', 'Diễm', 'Trinh']
+      male: ['Minh', 'Hung', 'Duc', 'Tuan', 'Quang', 'Thanh', 'Bao', 'Khoa', 'Nam', 'Long', 'Dung', 'Tung', 'Phuc', 'Anh', 'Viet'],
+      female: ['Lan', 'Hoa', 'Linh', 'Thuy', 'Huong', 'Mai', 'Thu', 'Trang', 'Nhung', 'Yen', 'Ngoc', 'Phuong', 'Chau', 'Diem', 'Trinh']
     },
-    lastNames: ['Nguyễn', 'Trần', 'Lê', 'Phạm', 'Hoàng', 'Phan', 'Vũ', 'Đặng', 'Bùi', 'Đỗ', 'Hồ', 'Ngô', 'Dương', 'Lý', 'Đinh'],
+    lastNames: ['Nguyen', 'Tran', 'Le', 'Pham', 'Hoang', 'Phan', 'Vu', 'Dang', 'Bui', 'Do', 'Ho', 'Ngo', 'Duong', 'Ly', 'Dinh'],
     cities: [
-      { city: 'Hà Nội', state: 'Hà Nội', zips: ['100000','115000','116000'], streets: ['Phố Huế','Đường Đinh Tiên Hoàng','Đường Lê Lợi','Phố Phan Đình Phùng','Đường Hai Bà Trưng'], districts: ['Hoàn Kiếm','Đống Đa','Cầu Giấy'], areaCode: '024' },
-      { city: 'Hồ Chí Minh', state: 'Hồ Chí Minh', zips: ['700000','710000','700900'], streets: ['Đường Nguyễn Huệ','Đường Lê Lợi','Đường Đồng Khởi','Đường Nam Kỳ Khởi Nghĩa','Đường Hai Bà Trưng'], districts: ['Quận 1','Quận 3','Bình Thạnh'], areaCode: '028' },
-      { city: 'Đà Nẵng', state: 'Đà Nẵng', zips: ['550000','551000','552000'], streets: ['Đường Trần Phú','Đường Nguyễn Văn Linh','Đường 2 tháng 9','Đường Điện Biên Phủ','Đường Nguyễn Tất Thành'], districts: ['Hải Châu','Sơn Trà','Ngũ Hành Sơn'], areaCode: '0236' },
+      { city: 'Hanoi', state: 'Hanoi', zips: ['100000','115000','116000'], streets: ['Pho Hue','Dinh Tien Hoang Street','Le Loi Street','Phan Dinh Phung Street','Hai Ba Trung Street'], districts: ['Hoan Kiem','Dong Da','Cau Giay'], areaCode: '024' },
+      { city: 'Ho Chi Minh City', state: 'Ho Chi Minh City', zips: ['700000','710000','700900'], streets: ['Nguyen Hue Boulevard','Le Loi Street','Dong Khoi Street','Nam Ky Khoi Nghia Street','Hai Ba Trung Street'], districts: ['District 1','District 3','Binh Thanh'], areaCode: '028' },
+      { city: 'Da Nang', state: 'Da Nang', zips: ['550000','551000','552000'], streets: ['Tran Phu Street','Nguyen Van Linh Street','2 Thang 9 Street','Dien Bien Phu Street','Nguyen Tat Thanh Street'], districts: ['Hai Chau','Son Tra','Ngu Hanh Son'], areaCode: '0236' },
     ],
-    streetAddress: (num, street, city, zip, state) => `${num} ${street}, ${city}, ${state} ${zip}`,
+    streetAddress: (num, street, city, zip, state) => `${num} ${street}, ${city} ${zip}, Vietnam`,
     idLabel: 'CCCD',
     idFormat: () => String(rand(100000000000, 999999999999)),
     salaryRange: [5000000, 30000000],
@@ -591,7 +591,7 @@ const COUNTRIES = {
       { city: 'Rotterdam', state: 'Zuid-Holland', zips: ['3011','3012','3013'], streets: ['Coolsingel','Lijnbaan','Meent','Witte de Withstraat','Nieuwe Binnenweg'], districts: ['Centrum','Delfshaven','Feijenoord'], areaCode: '10' },
       { city: 'Den Haag', state: 'Zuid-Holland', zips: ['2511','2512','2513'], streets: ['Lange Voorhout','Noordeinde','Grote Marktstraat','Spuistraat','Denneweg'], districts: ['Centrum','Scheveningen','Bezuidenhout'], areaCode: '70' },
     ],
-    streetAddress: (num, street, city, zip, state) => `${street} ${num}, ${zip} ${city}, ${state}`,
+    streetAddress: (num, street, city, zip, state) => `${street} ${num}, ${zip} ${city}, Netherlands`,
     idLabel: 'BSN',
     idFormat: () => String(rand(100000000, 999999999)),
     salaryRange: [2500, 6000],
@@ -614,7 +614,7 @@ const COUNTRIES = {
       { city: 'Ankara', state: 'Ankara', zips: ['06000','06100','06200'], streets: ['Atatürk Bulvarı','Kızılay Meydanı','Tunalı Hilmi Caddesi','Çankaya Caddesi','GMK Bulvarı'], districts: ['Çankaya','Kızılay','Ulus'], areaCode: '312' },
       { city: 'Izmir', state: 'Izmir', zips: ['35000','35100','35200'], streets: ['Kordon Boyu','Kemeraltı Caddesi','Cumhuriyet Bulvarı','Alsancak Caddesi','Şair Eşref Bulvarı'], districts: ['Konak','Bornova','Karşıyaka'], areaCode: '232' },
     ],
-    streetAddress: (num, street, city, zip, state) => `${street} No:${num}, ${zip} ${city}/${state}`,
+    streetAddress: (num, street, city, zip, state) => `${street} No:${num}, ${zip} ${city}, Turkey`,
     idLabel: 'TC Kimlik',
     idFormat: () => String(rand(10000000000, 99999999999)),
     salaryRange: [8000, 30000],
@@ -637,7 +637,7 @@ const COUNTRIES = {
       { city: 'Abu Dhabi', state: 'Abu Dhabi', zips: ['00100','00101','00102'], streets: ['Corniche Road','Hamdan Street','Khalifa Street','Airport Road','Al Muroor Road'], districts: ['Al Khalidiyah','Tourist Club','Al Mushrif'], areaCode: '2' },
       { city: 'Sharjah', state: 'Sharjah', zips: ['00200','00201','00202'], streets: ['Al Wahda Street','Al Arouba Road','King Faisal Street','Al Taawun Street','Maliha Road'], districts: ['Al Qasimia','Al Taawun','Al Majaz'], areaCode: '6' },
     ],
-    streetAddress: (num, street, city, zip, state) => `${num} ${street}, ${city}, ${state}`,
+    streetAddress: (num, street, city, zip, state) => `${num} ${street}, ${city}, UAE`,
     idLabel: 'Emirates ID',
     idFormat: () => `784-${rand(1000,9999)}-${rand(1000000,9999999)}-${rand(1,9)}`,
     salaryRange: [5000, 25000],
@@ -660,7 +660,7 @@ const COUNTRIES = {
       { city: 'Kraków', state: 'Lesser Poland', zips: ['30-001','31-001','30-500'], streets: ['Floriańska','Grodzka','Długa','Dietla','Starowiślna'], districts: ['Stare Miasto','Kazimierz','Podgórze'], areaCode: '12' },
       { city: 'Wrocław', state: 'Lower Silesian', zips: ['50-001','51-001','53-001'], streets: ['Świdnicka','Oławska','Piłsudskiego','Kazimierza Wielkiego','Ruska'], districts: ['Stare Miasto','Krzyki','Śródmieście'], areaCode: '71' },
     ],
-    streetAddress: (num, street, city, zip, state) => `ul. ${street} ${num}, ${zip} ${city}`,
+    streetAddress: (num, street, city, zip, state) => `ul. ${street} ${num}, ${zip} ${city}, Poland`,
     idLabel: 'PESEL',
     idFormat: () => String(rand(10000000000, 99999999999)),
     salaryRange: [3000, 12000],
@@ -683,7 +683,7 @@ const COUNTRIES = {
       { city: 'Córdoba', state: 'Córdoba', zips: ['X5000','X5003','X5009'], streets: ['Avenida Colón','Bulevar San Juan','Avenida Hipólito Yrigoyen','Calle Obispo Trejo','Deán Funes'], districts: ['Centro','Nueva Córdoba','Alberdi'], areaCode: '351' },
       { city: 'Rosario', state: 'Santa Fe', zips: ['S2000','S2002','S2008'], streets: ['Avenida Pellegrini','Calle Córdoba','Bulevar Oroño','Avenida San Martín','Sarmiento'], districts: ['Centro','República de la Sexta','Echesortu'], areaCode: '341' },
     ],
-    streetAddress: (num, street, city, zip, state) => `${street} ${num}, ${city} ${zip}, ${state}`,
+    streetAddress: (num, street, city, zip, state) => `${street} ${num}, ${city} ${zip}, Argentina`,
     idLabel: 'DNI',
     idFormat: () => String(rand(10000000, 99999999)),
     salaryRange: [150000, 600000],
@@ -706,7 +706,7 @@ const COUNTRIES = {
       { city: 'Surabaya', state: 'East Java', zips: ['60111','60112','60121'], streets: ['Jalan Pemuda','Jalan Basuki Rahmat','Jalan Darmo','Jalan Raya Gubeng','Jalan Urip Sumoharjo'], districts: ['Genteng','Tegalsari','Gubeng'], areaCode: '31' },
       { city: 'Bandung', state: 'West Java', zips: ['40111','40112','40113'], streets: ['Jalan Braga','Jalan Asia Afrika','Jalan Merdeka','Jalan Dago','Jalan Pasteur'], districts: ['Sumur Bandung','Coblong','Cicendo'], areaCode: '22' },
     ],
-    streetAddress: (num, street, city, zip, state) => `${street} No. ${num}, ${city} ${zip}, ${state}`,
+    streetAddress: (num, street, city, zip, state) => `${street} No. ${num}, ${city} ${zip}, Indonesia`,
     idLabel: 'NIK',
     idFormat: () => String(rand(1000000000000000, 9999999999999999)),
     salaryRange: [3000000, 15000000],
@@ -729,7 +729,7 @@ const COUNTRIES = {
       { city: 'Wellington', state: 'Wellington', zips: ['6011','6012','6021'], streets: ['Lambton Quay','Courtenay Place','Cuba Street','Manners Street','Willis Street'], districts: ['CBD','Te Aro','Thorndon'], areaCode: '4' },
       { city: 'Christchurch', state: 'Canterbury', zips: ['8011','8013','8022'], streets: ['Colombo Street','Riccarton Road','Papanui Road','Fitzgerald Avenue','Cashel Street'], districts: ['Central City','Riccarton','Papanui'], areaCode: '3' },
     ],
-    streetAddress: (num, street, city, zip, state) => `${num} ${street}, ${city} ${zip}`,
+    streetAddress: (num, street, city, zip, state) => `${num} ${street}, ${city} ${zip}, New Zealand`,
     idLabel: 'IRD Number',
     idFormat: () => `${rand(10,99)}-${rand(100,999)}-${rand(100,999)}`,
     salaryRange: [2500, 7000],
@@ -752,7 +752,7 @@ const COUNTRIES = {
       { city: 'Cape Town', state: 'Western Cape', zips: ['8000','8001','8005'], streets: ['Long Street','Buitenkant Street','Adderley Street','Strand Street','Kloof Street'], districts: ['City Bowl','Gardens','Sea Point'], areaCode: '21' },
       { city: 'Durban', state: 'KwaZulu-Natal', zips: ['4001','4051','4052'], streets: ['West Street','Smith Street','Florida Road','Umgeni Road','Marine Parade'], districts: ['CBD','Berea','Morningside'], areaCode: '31' },
     ],
-    streetAddress: (num, street, city, zip, state) => `${num} ${street}, ${city}, ${state} ${zip}`,
+    streetAddress: (num, street, city, zip, state) => `${num} ${street}, ${city}, ${state} ${zip}, South Africa`,
     idLabel: 'SA ID Number',
     idFormat: () => String(rand(7000000000000, 9999999999999)),
     salaryRange: [5000, 30000],
@@ -775,7 +775,7 @@ const COUNTRIES = {
       { city: 'Göteborg', state: 'Västra Götaland', zips: ['411 01','413 01','414 63'], streets: ['Avenyn','Kungsportsavenyn','Kungsgatan','Vasagatan','Östra Hamngatan'], districts: ['Centrum','Majorna','Haga'], areaCode: '31' },
       { city: 'Malmö', state: 'Skåne', zips: ['211 11','214 23','215 68'], streets: ['Södergatan','Stortorget','Drottninggatan','Amiralsgatan','Davidshallsgatan'], districts: ['Centrum','Husie','Limhamn'], areaCode: '40' },
     ],
-    streetAddress: (num, street, city, zip, state) => `${street} ${num}, ${zip} ${city}`,
+    streetAddress: (num, street, city, zip, state) => `${street} ${num}, ${zip} ${city}, Sweden`,
     idLabel: 'Personnummer',
     idFormat: () => `${rand(19,20)}${String(rand(0,99)).padStart(2,'0')}${String(rand(1,12)).padStart(2,'0')}${String(rand(1,28)).padStart(2,'0')}-${rand(1000,9999)}`,
     salaryRange: [25000, 60000],
@@ -798,11 +798,247 @@ const COUNTRIES = {
       { city: 'Genève', state: 'Genève', zips: ['1201','1202','1204'], streets: ['Rue du Rhône','Rue de Rive','Boulevard du Pont-d\'Arve','Rue de la Croix-d\'Or','Rue du Marché'], districts: ['Eaux-Vives','Plainpalais','Jonction'], areaCode: '22' },
       { city: 'Bern', state: 'Bern', zips: ['3001','3006','3007'], streets: ['Marktgasse','Kramgasse','Spitalgasse','Aarbergergasse','Bundesgasse'], districts: ['Altstadt','Länggasse','Bümpliz'], areaCode: '31' },
     ],
-    streetAddress: (num, street, city, zip, state) => `${street} ${num}, ${zip} ${city}`,
+    streetAddress: (num, street, city, zip, state) => `${street} ${num}, ${zip} ${city}, Switzerland`,
     idLabel: 'AHV-Nummer',
     idFormat: () => `756.${rand(1000,9999)}.${rand(1000,9999)}.${rand(10,99)}`,
     salaryRange: [5000, 12000],
-  }
+  },
+  IL: {
+    name: 'Israel',
+    flag: '🇮🇱',
+    code: 'IL',
+    phoneCode: '+972',
+    currency: '₪',
+    phoneFormat: () => `+972 ${[50,52,53,54,55,58][rand(0,5)]}-${rand(100,999)}-${rand(1000,9999)}`,
+    zipFormat: () => String(rand(1000000, 9999999)),
+    firstNames: {
+      male: ['Noam', 'David', 'Avi', 'Moshe', 'Yosef', 'Itai', 'Eyal', 'Roi', 'Nir', 'Amir', 'Ariel', 'Shai', 'Or', 'Gal', 'Yonatan'],
+      female: ['Tamar', 'Noa', 'Maya', 'Shira', 'Michal', 'Yael', 'Rina', 'Dana', 'Liora', 'Tali', 'Ori', 'Gali', 'Sivan', 'Keren', 'Inbar']
+    },
+    lastNames: ['Cohen', 'Levi', 'Mizrahi', 'Peretz', 'Biton', 'Dahan', 'Gabay', 'Friedman', 'Shapiro', 'Katz', 'Goldberg', 'Ben-David', 'Azoulay', 'Malka', 'Amar'],
+    cities: [
+      { city: 'Tel Aviv', state: 'Tel Aviv District', zips: ['6120101','6201001','6209201'], streets: ['Dizengoff Street','Ben Yehuda Street','Rothschild Boulevard','Allenby Street','Ibn Gabirol Street'], districts: ['Center','North','South'], areaCode: '03' },
+      { city: 'Jerusalem', state: 'Jerusalem District', zips: ['9100101','9143204','9421701'], streets: ['Jaffa Street','King George Street','Ben Yehuda Street','Emek Refaim Street','Hebron Road'], districts: ['City Center','German Colony','Rechavia'], areaCode: '02' },
+      { city: 'Haifa', state: 'Haifa District', zips: ['3301602','3308007','3435201'], streets: ['Herzl Street','Ben Gurion Boulevard','HaNassi Boulevard','Sderot HaNadiv','Moriya Avenue'], districts: ['Hadar','Carmel','Downtown'], areaCode: '04' },
+    ],
+    streetAddress: (num, street, city, zip, state) => `${num} ${street}, ${city}, Israel`,
+    idLabel: 'Teudat Zehut',
+    idFormat: () => String(rand(100000000, 999999999)),
+    salaryRange: [8000, 25000],
+  },
+  EG: {
+    name: 'Egypt',
+    flag: '🇪🇬',
+    code: 'EG',
+    phoneCode: '+20',
+    currency: 'EGP',
+    phoneFormat: () => `+20 1${[0,1,2,5][rand(0,3)]}${rand(10000000, 99999999)}`,
+    zipFormat: () => String(rand(11111, 56999)),
+    firstNames: {
+      male: ['Mohamed', 'Ahmed', 'Mahmoud', 'Ibrahim', 'Ali', 'Hassan', 'Omar', 'Khaled', 'Kareem', 'Tarek', 'Amr', 'Hani', 'Walid', 'Sherif', 'Mostafa'],
+      female: ['Fatima', 'Mariam', 'Nour', 'Sara', 'Aya', 'Mona', 'Rania', 'Dina', 'Heba', 'Noha', 'Amira', 'Yasmine', 'Hana', 'Eman', 'Asmaa']
+    },
+    lastNames: ['Hassan', 'Ibrahim', 'Mohamed', 'Ali', 'Ahmed', 'Mahmoud', 'Khalil', 'Mansour', 'Saad', 'Abdel-Rahman', 'El-Sayed', 'Morsi', 'Fahmy', 'Salah', 'Mostafa'],
+    cities: [
+      { city: 'Cairo', state: 'Cairo Governorate', zips: ['11511','11514','11311'], streets: ['Qasr Al-Aini Street','Ramses Street','Corniche El-Nil','Salah Salem Road','El Tahrir Square'], districts: ['Zamalek','Downtown','Heliopolis'], areaCode: '02' },
+      { city: 'Alexandria', state: 'Alexandria Governorate', zips: ['21111','21131','21521'], streets: ['Corniche Road','El-Hurriya Road','Port Said Street','Gamal Abdel Nasser Street','25 July Street'], districts: ['Montazah','Sidi Bishr','Stanley'], areaCode: '03' },
+      { city: 'Giza', state: 'Giza Governorate', zips: ['12511','12571','12621'], streets: ['Pyramids Road','Sudan Street','Faisal Street','Haram Street','Al-Ahram Street'], districts: ['Dokki','Agouza','Mohandessin'], areaCode: '02' },
+    ],
+    streetAddress: (num, street, city, zip, state) => `${num} ${street}, ${city} ${zip}, Egypt`,
+    idLabel: 'National ID',
+    idFormat: () => String(rand(10000000000000, 99999999999999)),
+    salaryRange: [3000, 15000],
+  },
+  NG: {
+    name: 'Nigeria',
+    flag: '🇳🇬',
+    code: 'NG',
+    phoneCode: '+234',
+    currency: '₦',
+    phoneFormat: () => `+234 ${[803,806,810,813,814,816,903,906][rand(0,7)]}-${rand(100,999)}-${rand(1000,9999)}`,
+    zipFormat: () => String(rand(100001, 999999)),
+    firstNames: {
+      male: ['Emeka', 'Chidi', 'Tunde', 'Seun', 'Biodun', 'Chinedu', 'Oluwasegun', 'Adebayo', 'Nnamdi', 'Ike', 'Obinna', 'Kelechi', 'Sola', 'Gbenga', 'Tobi'],
+      female: ['Ngozi', 'Amaka', 'Bimpe', 'Chioma', 'Adaeze', 'Tolani', 'Taiwo', 'Yetunde', 'Funmi', 'Bukola', 'Ifeoma', 'Chinwe', 'Nneka', 'Chiamaka', 'Folake']
+    },
+    lastNames: ['Okafor', 'Adeyemi', 'Okonkwo', 'Babatunde', 'Nwosu', 'Adeleke', 'Eze', 'Obi', 'Adesanya', 'Nwankwo', 'Chukwu', 'Bello', 'Olawale', 'Ogbonna', 'Dike'],
+    cities: [
+      { city: 'Lagos', state: 'Lagos State', zips: ['100001','100002','101001'], streets: ['Broad Street','Adeola Odeku Street','Balogun Market Road','Awolowo Road','Marina Street'], districts: ['Victoria Island','Lagos Island','Ikoyi'], areaCode: '01' },
+      { city: 'Abuja', state: 'FCT', zips: ['900001','900002','900211'], streets: ['Constitution Avenue','Nnamdi Azikiwe Way','Ahmadu Bello Way','Independence Avenue','Herbert Macaulay Way'], districts: ['Central Business District','Garki','Wuse'], areaCode: '09' },
+      { city: 'Port Harcourt', state: 'Rivers State', zips: ['500001','500002','500003'], streets: ['Aba Road','Rumuola Road','Elelenwo Street','Trans-Amadi Road','GRA Phase 2 Road'], districts: ['GRA','Diobu','Trans-Amadi'], areaCode: '084' },
+    ],
+    streetAddress: (num, street, city, zip, state) => `${num} ${street}, ${city}, Nigeria`,
+    idLabel: 'NIN',
+    idFormat: () => String(rand(10000000000, 99999999999)),
+    salaryRange: [50000, 500000],
+  },
+  CL: {
+    name: 'Chile',
+    flag: '🇨🇱',
+    code: 'CL',
+    phoneCode: '+56',
+    currency: 'CLP',
+    phoneFormat: () => `+56 9 ${rand(1000,9999)} ${rand(1000,9999)}`,
+    zipFormat: () => String(rand(1000000, 9999999)),
+    firstNames: {
+      male: ['Sebastian', 'Matias', 'Nicolas', 'Alejandro', 'Diego', 'Felipe', 'Ignacio', 'Cristobal', 'Rodrigo', 'Martin', 'Gabriel', 'Tomas', 'Pablo', 'Joaquin', 'Andres'],
+      female: ['Valentina', 'Camila', 'Sofia', 'Isidora', 'Javiera', 'Florencia', 'Constanza', 'Catalina', 'Daniela', 'Francisca', 'Martina', 'Antonella', 'Renata', 'Maria', 'Ana']
+    },
+    lastNames: ['Gonzalez', 'Munoz', 'Rojas', 'Diaz', 'Perez', 'Soto', 'Contreras', 'Silva', 'Martinez', 'Sepulveda', 'Morales', 'Rodriguez', 'Lopez', 'Fuentes', 'Hernandez'],
+    cities: [
+      { city: 'Santiago', state: 'Santiago Metropolitan', zips: ['8320000','8340593','7500000'], streets: ['Avenida Libertador Bernardo O\'Higgins','Avenida Providencia','Avenida Apoquindo','Avenida Las Condes','Paseo Ahumada'], districts: ['Santiago Centro','Providencia','Las Condes'], areaCode: '2' },
+      { city: 'Valparaiso', state: 'Valparaiso Region', zips: ['2340000','2380264','2380000'], streets: ['Avenida Brasil','Avenida Argentina','Condell Street','Pedro Montt Avenue','Errazuriz Avenue'], districts: ['Cerro Alegre','El Plan','Cerro Concepcion'], areaCode: '32' },
+      { city: 'Concepcion', state: 'Biobio Region', zips: ['4030000','4040000','4070000'], streets: ['Avenida O\'Higgins','Calle Caupolican','Avenida Chacabuco','Calle Freire','Avenida Los Carrera'], districts: ['Centro','Pedro de Valdivia','Hualpen'], areaCode: '41' },
+    ],
+    streetAddress: (num, street, city, zip, state) => `${street} ${num}, ${city}, Chile`,
+    idLabel: 'RUT',
+    idFormat: () => `${rand(1000000,25999999)}-${rand(0,9)}`,
+    salaryRange: [400000, 2000000],
+  },
+  CO: {
+    name: 'Colombia',
+    flag: '🇨🇴',
+    code: 'CO',
+    phoneCode: '+57',
+    currency: 'COP',
+    phoneFormat: () => `+57 ${[310,311,312,313,314,315,316,317,318,319][rand(0,9)]} ${rand(1000000,9999999)}`,
+    zipFormat: () => String(rand(110111, 999999)),
+    firstNames: {
+      male: ['Santiago', 'Juan', 'Alejandro', 'Sebastian', 'Daniel', 'Andres', 'David', 'Felipe', 'Diego', 'Carlos', 'Miguel', 'Luis', 'Cristian', 'Nicolas', 'Camilo'],
+      female: ['Valentina', 'Sofia', 'Isabella', 'Camila', 'Daniela', 'Alejandra', 'Maria', 'Natalia', 'Juliana', 'Paola', 'Andrea', 'Sara', 'Manuela', 'Laura', 'Mariana']
+    },
+    lastNames: ['Garcia', 'Rodriguez', 'Martinez', 'Hernandez', 'Lopez', 'Gonzalez', 'Perez', 'Sanchez', 'Ramirez', 'Gomez', 'Torres', 'Diaz', 'Vargas', 'Castro', 'Jimenez'],
+    cities: [
+      { city: 'Bogota', state: 'Bogota D.C.', zips: ['110111','110221','110311'], streets: ['Carrera 7','Avenida El Dorado','Calle 72','Avenida 19','Calle 53'], districts: ['La Candelaria','Chapinero','Suba'], areaCode: '1' },
+      { city: 'Medellin', state: 'Antioquia', zips: ['050001','050010','050021'], streets: ['El Poblado Avenue','Carrera 43A','Junin Street','San Juan Avenue','Las Vegas Avenue'], districts: ['El Poblado','Laureles','Belen'], areaCode: '4' },
+      { city: 'Cali', state: 'Valle del Cauca', zips: ['760001','760020','760045'], streets: ['Avenida Colombia','Carrera 5','Calle 13','Avenida Roosevelt','Carrera 100'], districts: ['El Centro','San Antonio','Ciudad Jardin'], areaCode: '2' },
+    ],
+    streetAddress: (num, street, city, zip, state) => `${street} #${num}, ${city}, Colombia`,
+    idLabel: 'Cedula',
+    idFormat: () => String(rand(100000000, 1999999999)),
+    salaryRange: [1200000, 6000000],
+  },
+  PE: {
+    name: 'Peru',
+    flag: '🇵🇪',
+    code: 'PE',
+    phoneCode: '+51',
+    currency: 'PEN',
+    phoneFormat: () => `+51 9${rand(10,99)}-${rand(100,999)}-${rand(100,999)}`,
+    zipFormat: () => String(rand(1, 99999)).padStart(5, '0'),
+    firstNames: {
+      male: ['Alejandro', 'Luis', 'Carlos', 'Jorge', 'Miguel', 'Pedro', 'Juan', 'Daniel', 'Rodrigo', 'Jose', 'Diego', 'Fernando', 'Ricardo', 'Andres', 'Sebastian'],
+      female: ['Valentina', 'Sofia', 'Maria', 'Lucia', 'Camila', 'Daniela', 'Isabella', 'Gabriela', 'Ana', 'Paula', 'Rosa', 'Carmen', 'Adriana', 'Patricia', 'Claudia']
+    },
+    lastNames: ['Garcia', 'Rodriguez', 'Lopez', 'Martinez', 'Sanchez', 'Flores', 'Huanca', 'Quispe', 'Mamani', 'Condori', 'Vargas', 'Morales', 'Ramos', 'Cruz', 'Torres'],
+    cities: [
+      { city: 'Lima', state: 'Lima Region', zips: ['15001','15036','15074'], streets: ['Avenida Larco','Jiron de la Union','Avenida Arequipa','Avenida Brasil','Miraflores Boulevard'], districts: ['Miraflores','San Isidro','Barranco'], areaCode: '1' },
+      { city: 'Arequipa', state: 'Arequipa Region', zips: ['04001','04002','04003'], streets: ['Mercaderes Street','San Juan de Dios Street','Moral Street','Santa Catalina Street','Alvarez Thomas Avenue'], districts: ['Cercado','Cayma','Mariano Melgar'], areaCode: '54' },
+      { city: 'Cusco', state: 'Cusco Region', zips: ['08001','08002','08003'], streets: ['Avenida El Sol','Calle Hatun Rumiyoc','Calle del Medio','Avenida Tupac Amaru','Santa Teresa Street'], districts: ['Cusco','San Sebastian','Wanchaq'], areaCode: '84' },
+    ],
+    streetAddress: (num, street, city, zip, state) => `${num} ${street}, ${city} ${zip}, Peru`,
+    idLabel: 'DNI',
+    idFormat: () => String(rand(10000000, 99999999)),
+    salaryRange: [900, 5000],
+  },
+  IE: {
+    name: 'Ireland',
+    flag: '🇮🇪',
+    code: 'IE',
+    phoneCode: '+353',
+    currency: '€',
+    phoneFormat: () => `+353 8${rand(0,9)}-${rand(100,999)}-${rand(1000,9999)}`,
+    zipFormat: () => {
+      const letters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+      return `${letters[rand(0,25)]}${rand(10,99)} ${letters[rand(0,25)]}${rand(10,99)}`;
+    },
+    firstNames: {
+      male: ['Liam', 'Conor', 'Sean', 'Patrick', 'James', 'Ryan', 'Jack', 'Niall', 'Cian', 'Oisin', 'Finn', 'Eoin', 'Declan', 'Brendan', 'Kieran'],
+      female: ['Aoife', 'Ciara', 'Niamh', 'Siobhan', 'Sinead', 'Aisling', 'Orla', 'Maeve', 'Roisin', 'Caoimhe', 'Emma', 'Sophie', 'Grace', 'Hannah', 'Clodagh']
+    },
+    lastNames: ['Murphy', 'Kelly', 'O\'Sullivan', 'Walsh', 'Smith', 'O\'Brien', 'Byrne', 'Ryan', 'O\'Connor', 'O\'Neill', 'Doyle', 'McCarthy', 'Gallagher', 'O\'Doherty', 'Kennedy'],
+    cities: [
+      { city: 'Dublin', state: 'Leinster', zips: ['D01','D02','D04'], streets: ['O\'Connell Street','Grafton Street','Dame Street','Nassau Street','St. Stephen\'s Green'], districts: ['City Centre','Southside','Northside'], areaCode: '01' },
+      { city: 'Cork', state: 'Munster', zips: ['T12','T23','T45'], streets: ['Patrick Street','Washington Street','MacCurtain Street','Grand Parade','South Mall'], districts: ['City Centre','Blackpool','Bishopstown'], areaCode: '021' },
+      { city: 'Galway', state: 'Connacht', zips: ['H91','H54','H65'], streets: ['Shop Street','High Street','William Street','Dominick Street','Eyre Square'], districts: ['City Centre','Salthill','Knocknacarra'], areaCode: '091' },
+    ],
+    streetAddress: (num, street, city, zip, state) => `${num} ${street}, ${city} ${zip}, Ireland`,
+    idLabel: 'PPS Number',
+    idFormat: () => {
+      const letters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+      return `${rand(1000000,9999999)}${letters[rand(0,25)]}${letters[rand(0,25)]}`;
+    },
+    salaryRange: [2500, 8000],
+  },
+  PT: {
+    name: 'Portugal',
+    flag: '🇵🇹',
+    code: 'PT',
+    phoneCode: '+351',
+    currency: '€',
+    phoneFormat: () => `+351 9${[1,2,3,6][rand(0,3)]}${rand(1000000,9999999)}`,
+    zipFormat: () => `${rand(1000,9999)}-${String(rand(0,999)).padStart(3,'0')}`,
+    firstNames: {
+      male: ['Joao', 'Miguel', 'Pedro', 'Andre', 'Ricardo', 'Tiago', 'Luis', 'Rui', 'Nuno', 'Filipe', 'Carlos', 'Jorge', 'Antonio', 'Francisco', 'Goncalo'],
+      female: ['Ana', 'Maria', 'Sofia', 'Catarina', 'Ines', 'Mariana', 'Marta', 'Sara', 'Joana', 'Beatriz', 'Patricia', 'Teresa', 'Helena', 'Andreia', 'Rita']
+    },
+    lastNames: ['Silva', 'Santos', 'Ferreira', 'Pereira', 'Oliveira', 'Costa', 'Rodrigues', 'Martins', 'Jesus', 'Sousa', 'Fernandes', 'Goncalves', 'Gomes', 'Lopes', 'Marques'],
+    cities: [
+      { city: 'Lisboa', state: 'Lisboa District', zips: ['1100-001','1200-001','1300-001'], streets: ['Avenida da Liberdade','Rua Augusta','Rua do Ouro','Praca do Comercio','Rua Garrett'], districts: ['Baixa','Chiado','Bairro Alto'], areaCode: '21' },
+      { city: 'Porto', state: 'Porto District', zips: ['4000-001','4100-001','4050-001'], streets: ['Rua de Santa Catarina','Avenida dos Aliados','Rua das Flores','Rua do Infante Dom Henrique','Rua 31 de Janeiro'], districts: ['Baixa','Bonfim','Cedofeita'], areaCode: '22' },
+      { city: 'Faro', state: 'Faro District', zips: ['8000-001','8000-250','8000-400'], streets: ['Rua de Santo Antonio','Rua Dom Francisco Gomes','Largo do Carmo','Avenida da Republica','Rua Conselheiro Bivar'], districts: ['Centro Historico','Montenegro','Gambelas'], areaCode: '289' },
+    ],
+    streetAddress: (num, street, city, zip, state) => `${num} ${street}, ${zip} ${city}, Portugal`,
+    idLabel: 'NIF',
+    idFormat: () => String(rand(100000000, 999999999)),
+    salaryRange: [800, 3000],
+  },
+  GR: {
+    name: 'Greece',
+    flag: '🇬🇷',
+    code: 'GR',
+    phoneCode: '+30',
+    currency: '€',
+    phoneFormat: () => `+30 69${rand(0,9)}${rand(1000000,9999999)}`,
+    zipFormat: () => String(rand(10000, 99999)),
+    firstNames: {
+      male: ['Nikos', 'Giorgos', 'Dimitris', 'Kostas', 'Thanasis', 'Makis', 'Panos', 'Stavros', 'Alexandros', 'Spyros', 'Christos', 'Vasilis', 'Tasos', 'Gianni', 'Petros'],
+      female: ['Maria', 'Elena', 'Eleni', 'Christina', 'Anna', 'Katerina', 'Sofia', 'Alexia', 'Stavroula', 'Ioanna', 'Dimitra', 'Nikoleta', 'Despina', 'Irene', 'Antonia']
+    },
+    lastNames: ['Papadopoulos', 'Papadimitriou', 'Oikonomou', 'Papageorgiou', 'Alexiou', 'Christodoulou', 'Georgiou', 'Ioannou', 'Petrou', 'Stavros', 'Antoniou', 'Nikolaou', 'Andreou', 'Stylianou', 'Demetriou'],
+    cities: [
+      { city: 'Athens', state: 'Attica', zips: ['10431','10552','11471'], streets: ['Stadiou Street','Ermou Street','Panepistimiou Street','Athinas Street','Voulis Street'], districts: ['Syntagma','Monastiraki','Kolonaki'], areaCode: '21' },
+      { city: 'Thessaloniki', state: 'Central Macedonia', zips: ['54621','54622','54630'], streets: ['Tsimiski Street','Egnatia Street','Aristotelous Square','Mitropoleos Street','Nikis Avenue'], districts: ['Centre','Ladadika','Vardaris'], areaCode: '2310' },
+      { city: 'Heraklion', state: 'Crete', zips: ['71201','71202','71306'], streets: ['25th August Street','1866 Street','Daidalou Street','Handakos Street','Knossos Avenue'], districts: ['Old Town','Ammoudara','Agia Triada'], areaCode: '2810' },
+    ],
+    streetAddress: (num, street, city, zip, state) => `${num} ${street}, ${city} ${zip}, Greece`,
+    idLabel: 'AMKA',
+    idFormat: () => `${String(rand(1,31)).padStart(2,'0')}${String(rand(1,12)).padStart(2,'0')}${rand(10,99)}${rand(10000,99999)}`,
+    salaryRange: [700, 3000],
+  },
+  UA: {
+    name: 'Ukraine',
+    flag: '🇺🇦',
+    code: 'UA',
+    phoneCode: '+380',
+    currency: '₴',
+    phoneFormat: () => `+380 ${[50,63,66,67,68,73,91,93,95,97,98,99][rand(0,11)]}-${rand(100,999)}-${rand(10,99)}-${rand(10,99)}`,
+    zipFormat: () => String(rand(1000, 99999)).padStart(5, '0'),
+    firstNames: {
+      male: ['Oleksandr', 'Mykola', 'Vasyl', 'Ivan', 'Andriy', 'Dmytro', 'Serhiy', 'Volodymyr', 'Artem', 'Bohdan', 'Yaroslav', 'Taras', 'Mykhailo', 'Viktor', 'Roman'],
+      female: ['Olena', 'Nataliya', 'Yuliya', 'Oksana', 'Iryna', 'Tetiana', 'Svitlana', 'Mariia', 'Daryna', 'Sofia', 'Anastasiya', 'Kateryna', 'Larysa', 'Lyudmyla', 'Vira']
+    },
+    lastNames: ['Kovalenko', 'Bondarenko', 'Tkachenko', 'Kravchenko', 'Shevchenko', 'Marchenko', 'Petrenko', 'Melnyk', 'Lysenko', 'Moroz', 'Koval', 'Savchenko', 'Ponomarenko', 'Lazarenko', 'Pavlenko'],
+    cities: [
+      { city: 'Kyiv', state: 'Kyiv Oblast', zips: ['01001','02000','03150'], streets: ['Khreshchatyk Street','Bohdan Khmelnytsky Street','Velyka Vasylkivska Street','Saksahanskoho Street','Volodymyrska Street'], districts: ['Pecherskyi','Shevchenkivskyi','Holosiivskyi'], areaCode: '44' },
+      { city: 'Lviv', state: 'Lviv Oblast', zips: ['79000','79008','79013'], streets: ['Svobody Avenue','Rynok Square','Shevchenko Avenue','Franka Street','Horodotska Street'], districts: ['Halychyna','Sykhiv','Lychakiv'], areaCode: '32' },
+      { city: 'Odesa', state: 'Odesa Oblast', zips: ['65000','65012','65023'], streets: ['Derybasivska Street','Prymorsky Boulevard','Kanatna Street','Pushkinska Street','Velyka Arnautska Street'], districts: ['Prymorskyi','Khadjibeyskyi','Malinovskyi'], areaCode: '48' },
+    ],
+    streetAddress: (num, street, city, zip, state) => `${num} ${street}, ${city} ${zip}, Ukraine`,
+    idLabel: 'IPN',
+    idFormat: () => String(rand(1000000000, 9999999999)),
+    salaryRange: [8000, 40000],
+  },
 };
 
 const OCCUPATIONS = [
