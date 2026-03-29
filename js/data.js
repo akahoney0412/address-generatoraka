@@ -1,7 +1,7 @@
 // Country data for the global address generator
 const COUNTRIES = {
   US: {
-    name: 'United States',
+    name: '美国',
     flag: '🇺🇸',
     code: 'US',
     phoneCode: '+1',
@@ -29,7 +29,7 @@ const COUNTRIES = {
     salaryRange: [3000, 12000],
   },
   GB: {
-    name: 'United Kingdom',
+    name: '英国',
     flag: '🇬🇧',
     code: 'GB',
     phoneCode: '+44',
@@ -60,7 +60,7 @@ const COUNTRIES = {
     salaryRange: [2500, 10000],
   },
   CN: {
-    name: 'China',
+    name: '中国',
     flag: '🇨🇳',
     code: 'CN',
     phoneCode: '+86',
@@ -95,7 +95,7 @@ const COUNTRIES = {
     salaryRange: [5000, 30000],
   },
   JP: {
-    name: 'Japan',
+    name: '日本',
     flag: '🇯🇵',
     code: 'JP',
     phoneCode: '+81',
@@ -118,7 +118,7 @@ const COUNTRIES = {
     salaryRange: [200000, 800000],
   },
   KR: {
-    name: 'South Korea',
+    name: '韩国',
     flag: '🇰🇷',
     code: 'KR',
     phoneCode: '+82',
@@ -148,7 +148,7 @@ const COUNTRIES = {
     salaryRange: [2000000, 8000000],
   },
   PH: {
-    name: 'Philippines',
+    name: '菲律宾',
     flag: '🇵🇭',
     code: 'PH',
     phoneCode: '+63',
@@ -171,7 +171,7 @@ const COUNTRIES = {
     salaryRange: [15000, 80000],
   },
   DE: {
-    name: 'Germany',
+    name: '德国',
     flag: '🇩🇪',
     code: 'DE',
     phoneCode: '+49',
@@ -200,7 +200,7 @@ const COUNTRIES = {
     salaryRange: [2500, 9000],
   },
   FR: {
-    name: 'France',
+    name: '法国',
     flag: '🇫🇷',
     code: 'FR',
     phoneCode: '+33',
@@ -232,7 +232,7 @@ const COUNTRIES = {
     salaryRange: [2000, 8000],
   },
   AU: {
-    name: 'Australia',
+    name: '澳大利亚',
     flag: '🇦🇺',
     code: 'AU',
     phoneCode: '+61',
@@ -255,7 +255,7 @@ const COUNTRIES = {
     salaryRange: [4000, 15000],
   },
   CA: {
-    name: 'Canada',
+    name: '加拿大',
     flag: '🇨🇦',
     code: 'CA',
     phoneCode: '+1',
@@ -284,7 +284,7 @@ const COUNTRIES = {
     salaryRange: [3500, 12000],
   },
   IT: {
-    name: 'Italy',
+    name: '意大利',
     flag: '🇮🇹',
     code: 'IT',
     phoneCode: '+39',
@@ -318,7 +318,7 @@ const COUNTRIES = {
     salaryRange: [1500, 6000],
   },
   ES: {
-    name: 'Spain',
+    name: '西班牙',
     flag: '🇪🇸',
     code: 'ES',
     phoneCode: '+34',
@@ -345,7 +345,7 @@ const COUNTRIES = {
     salaryRange: [1500, 5000],
   },
   BR: {
-    name: 'Brazil',
+    name: '巴西',
     flag: '🇧🇷',
     code: 'BR',
     phoneCode: '+55',
@@ -374,7 +374,7 @@ const COUNTRIES = {
     salaryRange: [1500, 10000],
   },
   IN: {
-    name: 'India',
+    name: '印度',
     flag: '🇮🇳',
     code: 'IN',
     phoneCode: '+91',
@@ -397,7 +397,7 @@ const COUNTRIES = {
     salaryRange: [20000, 150000],
   },
   RU: {
-    name: 'Russia',
+    name: '俄罗斯',
     flag: '🇷🇺',
     code: 'RU',
     phoneCode: '+7',
@@ -426,7 +426,7 @@ const COUNTRIES = {
     salaryRange: [30000, 200000],
   },
   MX: {
-    name: 'Mexico',
+    name: '墨西哥',
     flag: '🇲🇽',
     code: 'MX',
     phoneCode: '+52',
@@ -462,7 +462,7 @@ const COUNTRIES = {
     salaryRange: [8000, 40000],
   },
   SG: {
-    name: 'Singapore',
+    name: '新加坡',
     flag: '🇸🇬',
     code: 'SG',
     phoneCode: '+65',
@@ -490,7 +490,7 @@ const COUNTRIES = {
     salaryRange: [3000, 15000],
   },
   MY: {
-    name: 'Malaysia',
+    name: '马来西亚',
     flag: '🇲🇾',
     code: 'MY',
     phoneCode: '+60',
@@ -521,7 +521,7 @@ const COUNTRIES = {
     salaryRange: [2000, 15000],
   },
   TH: {
-    name: 'Thailand',
+    name: '泰国',
     flag: '🇹🇭',
     code: 'TH',
     phoneCode: '+66',
@@ -551,7 +551,7 @@ const COUNTRIES = {
     salaryRange: [15000, 80000],
   },
   VN: {
-    name: 'Vietnam',
+    name: '越南',
     flag: '🇻🇳',
     code: 'VN',
     phoneCode: '+84',
@@ -574,7 +574,7 @@ const COUNTRIES = {
     salaryRange: [5000000, 30000000],
   },
   NL: {
-    name: 'Netherlands',
+    name: '荷兰',
     flag: '🇳🇱',
     code: 'NL',
     phoneCode: '+31',
@@ -597,7 +597,7 @@ const COUNTRIES = {
     salaryRange: [2500, 6000],
   },
   TR: {
-    name: 'Turkey',
+    name: '土耳其',
     flag: '🇹🇷',
     code: 'TR',
     phoneCode: '+90',
@@ -620,7 +620,7 @@ const COUNTRIES = {
     salaryRange: [8000, 30000],
   },
   AE: {
-    name: 'UAE',
+    name: '阿联酋',
     flag: '🇦🇪',
     code: 'AE',
     phoneCode: '+971',
@@ -643,7 +643,7 @@ const COUNTRIES = {
     salaryRange: [5000, 25000],
   },
   PL: {
-    name: 'Poland',
+    name: '波兰',
     flag: '🇵🇱',
     code: 'PL',
     phoneCode: '+48',
@@ -666,7 +666,7 @@ const COUNTRIES = {
     salaryRange: [3000, 12000],
   },
   AR: {
-    name: 'Argentina',
+    name: '阿根廷',
     flag: '🇦🇷',
     code: 'AR',
     phoneCode: '+54',
@@ -689,7 +689,7 @@ const COUNTRIES = {
     salaryRange: [150000, 600000],
   },
   ID: {
-    name: 'Indonesia',
+    name: '印度尼西亚',
     flag: '🇮🇩',
     code: 'ID',
     phoneCode: '+62',
@@ -712,7 +712,7 @@ const COUNTRIES = {
     salaryRange: [3000000, 15000000],
   },
   NZ: {
-    name: 'New Zealand',
+    name: '新西兰',
     flag: '🇳🇿',
     code: 'NZ',
     phoneCode: '+64',
@@ -735,7 +735,7 @@ const COUNTRIES = {
     salaryRange: [2500, 7000],
   },
   ZA: {
-    name: 'South Africa',
+    name: '南非',
     flag: '🇿🇦',
     code: 'ZA',
     phoneCode: '+27',
@@ -758,7 +758,7 @@ const COUNTRIES = {
     salaryRange: [5000, 30000],
   },
   SE: {
-    name: 'Sweden',
+    name: '瑞典',
     flag: '🇸🇪',
     code: 'SE',
     phoneCode: '+46',
@@ -781,7 +781,7 @@ const COUNTRIES = {
     salaryRange: [25000, 60000],
   },
   CH: {
-    name: 'Switzerland',
+    name: '瑞士',
     flag: '🇨🇭',
     code: 'CH',
     phoneCode: '+41',
@@ -804,7 +804,7 @@ const COUNTRIES = {
     salaryRange: [5000, 12000],
   },
   IL: {
-    name: 'Israel',
+    name: '以色列',
     flag: '🇮🇱',
     code: 'IL',
     phoneCode: '+972',
@@ -827,7 +827,7 @@ const COUNTRIES = {
     salaryRange: [8000, 25000],
   },
   EG: {
-    name: 'Egypt',
+    name: '埃及',
     flag: '🇪🇬',
     code: 'EG',
     phoneCode: '+20',
@@ -850,7 +850,7 @@ const COUNTRIES = {
     salaryRange: [3000, 15000],
   },
   NG: {
-    name: 'Nigeria',
+    name: '尼日利亚',
     flag: '🇳🇬',
     code: 'NG',
     phoneCode: '+234',
@@ -873,7 +873,7 @@ const COUNTRIES = {
     salaryRange: [50000, 500000],
   },
   CL: {
-    name: 'Chile',
+    name: '智利',
     flag: '🇨🇱',
     code: 'CL',
     phoneCode: '+56',
@@ -896,7 +896,7 @@ const COUNTRIES = {
     salaryRange: [400000, 2000000],
   },
   CO: {
-    name: 'Colombia',
+    name: '哥伦比亚',
     flag: '🇨🇴',
     code: 'CO',
     phoneCode: '+57',
@@ -919,7 +919,7 @@ const COUNTRIES = {
     salaryRange: [1200000, 6000000],
   },
   PE: {
-    name: 'Peru',
+    name: '秘鲁',
     flag: '🇵🇪',
     code: 'PE',
     phoneCode: '+51',
@@ -942,7 +942,7 @@ const COUNTRIES = {
     salaryRange: [900, 5000],
   },
   IE: {
-    name: 'Ireland',
+    name: '爱尔兰',
     flag: '🇮🇪',
     code: 'IE',
     phoneCode: '+353',
@@ -971,7 +971,7 @@ const COUNTRIES = {
     salaryRange: [2500, 8000],
   },
   PT: {
-    name: 'Portugal',
+    name: '葡萄牙',
     flag: '🇵🇹',
     code: 'PT',
     phoneCode: '+351',
@@ -994,7 +994,7 @@ const COUNTRIES = {
     salaryRange: [800, 3000],
   },
   GR: {
-    name: 'Greece',
+    name: '希腊',
     flag: '🇬🇷',
     code: 'GR',
     phoneCode: '+30',
@@ -1017,7 +1017,7 @@ const COUNTRIES = {
     salaryRange: [700, 3000],
   },
   UA: {
-    name: 'Ukraine',
+    name: '乌克兰',
     flag: '🇺🇦',
     code: 'UA',
     phoneCode: '+380',
@@ -1040,7 +1040,7 @@ const COUNTRIES = {
     salaryRange: [8000, 40000],
   },
   SA: {
-    name: 'Saudi Arabia',
+    name: '沙特阿拉伯',
     flag: '🇸🇦',
     code: 'SA',
     phoneCode: '+966',
@@ -1063,7 +1063,7 @@ const COUNTRIES = {
     salaryRange: [4000, 20000],
   },
   AT: {
-    name: 'Austria',
+    name: '奥地利',
     flag: '🇦🇹',
     code: 'AT',
     phoneCode: '+43',
@@ -1086,7 +1086,7 @@ const COUNTRIES = {
     salaryRange: [2000, 8000],
   },
   BE: {
-    name: 'Belgium',
+    name: '比利时',
     flag: '🇧🇪',
     code: 'BE',
     phoneCode: '+32',
@@ -1112,7 +1112,7 @@ const COUNTRIES = {
     salaryRange: [2200, 8500],
   },
   DK: {
-    name: 'Denmark',
+    name: '丹麦',
     flag: '🇩🇰',
     code: 'DK',
     phoneCode: '+45',
@@ -1138,7 +1138,7 @@ const COUNTRIES = {
     salaryRange: [25000, 60000],
   },
   FI: {
-    name: 'Finland',
+    name: '芬兰',
     flag: '🇫🇮',
     code: 'FI',
     phoneCode: '+358',
@@ -1165,7 +1165,7 @@ const COUNTRIES = {
     salaryRange: [2000, 7000],
   },
   NO: {
-    name: 'Norway',
+    name: '挪威',
     flag: '🇳🇴',
     code: 'NO',
     phoneCode: '+47',
@@ -1191,7 +1191,7 @@ const COUNTRIES = {
     salaryRange: [30000, 80000],
   },
   CZ: {
-    name: 'Czech Republic',
+    name: '捷克',
     flag: '🇨🇿',
     code: 'CZ',
     phoneCode: '+420',
@@ -1218,7 +1218,7 @@ const COUNTRIES = {
     salaryRange: [25000, 80000],
   },
   PK: {
-    name: 'Pakistan',
+    name: '巴基斯坦',
     flag: '🇵🇰',
     code: 'PK',
     phoneCode: '+92',
@@ -1241,7 +1241,7 @@ const COUNTRIES = {
     salaryRange: [30000, 150000],
   },
   BD: {
-    name: 'Bangladesh',
+    name: '孟加拉国',
     flag: '🇧🇩',
     code: 'BD',
     phoneCode: '+880',
@@ -1264,7 +1264,7 @@ const COUNTRIES = {
     salaryRange: [15000, 80000],
   },
   KE: {
-    name: 'Kenya',
+    name: '肯尼亚',
     flag: '🇰🇪',
     code: 'KE',
     phoneCode: '+254',
@@ -1287,7 +1287,7 @@ const COUNTRIES = {
     salaryRange: [30000, 150000],
   },
   MA: {
-    name: 'Morocco',
+    name: '摩洛哥',
     flag: '🇲🇦',
     code: 'MA',
     phoneCode: '+212',
@@ -1310,7 +1310,7 @@ const COUNTRIES = {
     salaryRange: [3000, 15000],
   },
   HU: {
-    name: 'Hungary',
+    name: '匈牙利',
     flag: '🇭🇺',
     code: 'HU',
     phoneCode: '+36',
@@ -1333,7 +1333,7 @@ const COUNTRIES = {
     salaryRange: [200000, 800000],
   },
   RO: {
-    name: 'Romania',
+    name: '罗马尼亚',
     flag: '🇷🇴',
     code: 'RO',
     phoneCode: '+40',
@@ -1365,7 +1365,7 @@ const COUNTRIES = {
     salaryRange: [2000, 8000],
   },
   HR: {
-    name: 'Croatia',
+    name: '克罗地亚',
     flag: '🇭🇷',
     code: 'HR',
     phoneCode: '+385',
@@ -1388,7 +1388,7 @@ const COUNTRIES = {
     salaryRange: [1000, 4000],
   },
   RS: {
-    name: 'Serbia',
+    name: '塞尔维亚',
     flag: '🇷🇸',
     code: 'RS',
     phoneCode: '+381',
@@ -1419,7 +1419,7 @@ const COUNTRIES = {
     salaryRange: [50000, 150000],
   },
   SK: {
-    name: 'Slovakia',
+    name: '斯洛伐克',
     flag: '🇸🇰',
     code: 'SK',
     phoneCode: '+421',
@@ -1449,7 +1449,7 @@ const COUNTRIES = {
     salaryRange: [1000, 4000],
   },
   BG: {
-    name: 'Bulgaria',
+    name: '保加利亚',
     flag: '🇧🇬',
     code: 'BG',
     phoneCode: '+359',
@@ -1479,7 +1479,7 @@ const COUNTRIES = {
     salaryRange: [1500, 6000],
   },
   LT: {
-    name: 'Lithuania',
+    name: '立陶宛',
     flag: '🇱🇹',
     code: 'LT',
     phoneCode: '+370',
@@ -1510,7 +1510,7 @@ const COUNTRIES = {
     salaryRange: [1200, 5000],
   },
   GH: {
-    name: 'Ghana',
+    name: '加纳',
     flag: '🇬🇭',
     code: 'GH',
     phoneCode: '+233',
@@ -1538,7 +1538,7 @@ const COUNTRIES = {
     salaryRange: [800, 4000],
   },
   KZ: {
-    name: 'Kazakhstan',
+    name: '哈萨克斯坦',
     flag: '🇰🇿',
     code: 'KZ',
     phoneCode: '+7',
